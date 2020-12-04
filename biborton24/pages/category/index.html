@@ -7,51 +7,83 @@
     <link rel="stylesheet" href="../../style.css" />
   </head>
   <body>
-    <header class="border-b">
-      <nav class="mx-auto p-2 sm:px-8 sm:py-3">
-        <div
-          class="flex flex-col md:flex-row md:justify-between md:items-center"
-        >
+    <header class="">
+      <div class="mx-auto p-2 sm:px-8 sm:py-3">
+        <div class="flex justify-around md:justify-between md:items-center">
           <div class="flex justify-between items-center">
             <div class="flex items-center">
               <a
-                class="text-gray-800 text-xl font-bold md:text-2xl hover:text-gray-700"
+                class="text-gray-800 text-xl font-baloo font-bold md:text-2xl hover:text-gray-700"
                 href="#"
                 >বিবর্তন২৪</a
               >
             </div>
           </div>
+          <div class="flex">
+            <div class="relative mr-2">
+              <input
+                type="text"
+                name=""
+                id=""
+                class="rounded-full focus:ring-2 focus:ring-red-600 focus:border-0"
+              />
+              <button class="bg-white p-2 absolute right-2 top-1 rounded-full">
+                <svg
+                  viewBox="0 0 16 16"
+                  class="h-4 w-4"
+                  fill="currentColor"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"
+                  />
+                  <path
+                    fill-rule="evenodd"
+                    d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"
+                  />
+                </svg>
+              </button>
+            </div>
+            <button
+              class="p-2 border border-red-600 bg-red-600 rounded-full text-white hover:bg-white hover:text-black"
+            >
+              Login
+            </button>
+          </div>
         </div>
-
-        <div class="mt-4 flex flex-wrap text-sm lg:text-base">
-          <a
-            class="inline-block ml-2 border-b-2 border-white hover:border-red-600 hover:text-blue-700 transition-all duration-300 ease-linear"
-            href="#"
-            >Home</a
-          >
-          <a
-            class="inline-block ml-2 border-b-2 border-white hover:border-red-600 hover:text-blue-700"
-            href="pages/category/index.html"
-            >Politics</a
-          >
-          <a
-            class="inline-block ml-2 border-b-2 border-white hover:border-red-600 hover:text-blue-700"
-            href="#"
-            >Education</a
-          >
-          <a
-            class="inline-block ml-2 border-b-2 border-white hover:border-red-600 hover:text-blue-700"
-            href="#"
-            >Lifestyle</a
-          >
-          <a
-            class="inline-block ml-2 border-b-2 border-white hover:border-red-600 hover:text-blue-700"
-            href="#"
-            >Foreign Affairs</a
-          >
-        </div>
-      </nav>
+      </div>
     </header>
+    <nav class="md:sticky md:top-0 md:w-full bg-white">
+      <div class="flex flex-wrap text-sm lg:text-base mx-4 p-2">
+        <a
+          class="inline-block ml-2 border-b-2 border-white hover:border-red-600 hover:text-blue-700 transition-all duration-300 ease-linear"
+          href="#"
+          >Home</a
+        >
+        <a
+          class="inline-block ml-2 border-b-2 border-white hover:border-red-600 hover:text-blue-700"
+          href="pages/category/index.html"
+          >Politics</a
+        >
+        <a
+          class="inline-block ml-2 border-b-2 border-white hover:border-red-600 hover:text-blue-700"
+          href="#"
+          >Education</a
+        >
+        <a
+          class="inline-block ml-2 border-b-2 border-white hover:border-red-600 hover:text-blue-700"
+          href="#"
+          >Lifestyle</a
+        >
+        <a
+          class="inline-block ml-2 border-b-2 border-white hover:border-red-600 hover:text-blue-700"
+          href="#"
+          >Foreign Affairs</a
+        >
+      </div>
+      <div class="border-b"></div>
+    </nav>
     <main>
       <div class="container">
         <div class="grid grid-cols-1 sm:grid-cols-4 gap-2">
@@ -130,36 +162,54 @@
               </h1>
             </div>
             <div class="">
-              <ul>
+              <ul class="">
                 <li
-                  class="flex justify-center sm:justify-around md:justify-between border-b p-4"
+                  class="group hover:bg-gray-200 flex justify-center sm:justify-around md:justify-between border-b p-4"
                 >
-                  <div class="bg-gray-400 mr-2 h-8 w-8 border-2 p-2 rounded-full self-center">
-                    1
+                  <div
+                    class="bg-gray-200 group-hover:bg-white group-hover:border-white flex justify-center justify-items-center mr-2 h-8 w-8 border-2 p-2 rounded-full self-center"
+                  >
+                    <span class="self-center">1</span>
                   </div>
                   <div>Lorem ipsum dolor sit amet.</div>
                 </li>
                 <li
-                  class="flex justify-center sm:justify-around md:justify-between border-b p-4"
+                  class="group hover:bg-gray-200 flex justify-center sm:justify-around md:justify-between border-b p-4"
                 >
-                  <div class="bg-gray-400 mr-2 h-8 w-8 border-2 p-2 rounded-full self-center">
-                    2
+                  <div
+                    class="bg-gray-200 group-hover:bg-white group-hover:border-white flex justify-center justify-items-center mr-2 h-8 w-8 border-2 p-2 rounded-full self-center"
+                  >
+                    <span class="self-center">2</span>
                   </div>
                   <div>Lorem ipsum dolor sit amet.</div>
                 </li>
                 <li
-                  class="flex justify-center sm:justify-around md:justify-between border-b p-4"
+                  class="group hover:bg-gray-200 flex justify-center sm:justify-around md:justify-between border-b p-4"
                 >
-                  <div class="bg-gray-400 mr-2 h-8 w-8 border-2 p-2 rounded-full self-center">
-                    3
+                  <div
+                    class="bg-gray-200 group-hover:bg-white group-hover:border-white flex justify-center justify-items-center mr-2 h-8 w-8 border-2 p-2 rounded-full self-center"
+                  >
+                    <span class="self-center">3</span>
                   </div>
                   <div>Lorem ipsum dolor sit amet.</div>
                 </li>
                 <li
-                  class="flex justify-center sm:justify-around md:justify-between border-b p-4"
+                  class="group hover:bg-gray-200 flex justify-center sm:justify-around md:justify-between border-b p-4"
                 >
-                  <div class="bg-gray-400 mr-2 h-8 w-8 border-2 p-2 rounded-full self-center">
-                    4
+                  <div
+                    class="bg-gray-200 group-hover:bg-white group-hover:border-white flex justify-center justify-items-center mr-2 h-8 w-8 border-2 p-2 rounded-full self-center"
+                  >
+                    <span class="self-center">4</span>
+                  </div>
+                  <div>Lorem ipsum dolor sit amet.</div>
+                </li>
+                <li
+                  class="group hover:bg-gray-200 flex justify-center sm:justify-around md:justify-between border-b p-4"
+                >
+                  <div
+                    class="bg-gray-200 group-hover:bg-white group-hover:border-white flex justify-center justify-items-center mr-2 h-8 w-8 border-2 p-2 rounded-full self-center"
+                  >
+                    <span class="self-center">5</span>
                   </div>
                   <div>Lorem ipsum dolor sit amet.</div>
                 </li>
