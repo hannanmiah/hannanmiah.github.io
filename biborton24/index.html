@@ -5,17 +5,20 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Biborton24.com || tailwindcss project</title>
+  <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Mina:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
 
-<body class="relative">
+<body class="relative" x-data="{open: false}">
   <header class="bg-white sticky top-0 md:relative">
     <div class="mx-auto p-2 sm:px-8 sm:py-3">
       <div class="flex justify-around md:justify-between md:items-center">
         <div class="flex justify-between items-center">
           <div class="flex items-start">
             <button class="md:hidden mr-2" id="sidebarOpen"><img src="assets/menu.svg" alt="" srcset=""></button>
-            <a class="text-gray-800 text-xl font-baloo font-bold md:text-2xl hover:text-gray-700" href="#">বিবর্তন২৪</a>
+            <a class="text-gray-800 text-xl font-mina font-bold md:text-2xl hover:text-gray-700" href="#">বিবর্তন২৪</a>
           </div>
         </div>
         <div class="flex">
@@ -31,7 +34,8 @@
               </svg>
             </button>
           </div>
-          <button class="p-2 border border-red-600 bg-red-600 rounded-full text-white hover:bg-white hover:text-black">
+          <button @click="open = true"
+            class="p-2 border border-red-600 bg-red-600 rounded-full text-white hover:bg-white hover:text-black">
             Login
           </button>
         </div>
@@ -56,20 +60,62 @@
 
   <aside class="absolute top-0 left-0 w-full h-screen hidden" style="background-color: rgba(0, 0, 0, 0.5);">
     <div class="fixed top-0 left-0 h-screen bg-white">
-      <section class="p-4">
-        <span>Menu</span> <button class="border p-2 border-red-600 rounded-full" id="sidebarClose">x</button>
+      <section class="p-4 flex justify-between border-b">
+        <span>Menu</span> <button class="border border-red-600 rounded-full" id="sidebarClose">x</button>
       </section>
       <section class="p-4">
         <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Politics</a></li>
-          <li><a href="#">Education</a></li>
-          <li><a href="#">Lifestyle</a></li>
-          <li><a href="pages/category/index.html">Foreign Affairs</a></li>
+          <li><a
+              class="inline-block mb-2 border-b border-white hover:text-blue-700 hover:border-b hover:border-red-600 transition-all duration-300 ease-linear"
+              href="#">Home</a></li>
+          <li><a
+              class="inline-block mb-2 border-b border-white hover:text-blue-700 hover:border-b hover:border-red-600 transition-all duration-300 ease-linear"
+              href="#">Politics</a></li>
+          <li><a
+              class="inline-block mb-2 border-b border-white hover:text-blue-700 hover:border-b hover:border-red-600 transition-all duration-300 ease-linear"
+              href="#">Education</a></li>
+          <li><a
+              class="inline-block mb-2 border-b border-white hover:text-blue-700 hover:border-b hover:border-red-600 transition-all duration-300 ease-linear"
+              href="#">Lifestyle</a></li>
+          <li><a
+              class="inline-block mb-2 border-b border-white hover:text-blue-700 hover:border-b hover:border-red-600 transition-all duration-300 ease-linear"
+              href="#">Foreign Affairs</a></li>
         </ul>
       </section>
     </div>
   </aside>
+
+  <div class="h-screen w-full fixed top-0 left-0" style="background:rgba(0, 0, 0, 0.5);" x-show="open">
+    <div class="bg-white m-auto max-w-md shadow-md">
+      <div class="border-b-2 p-4 flex justify-between">
+        <section class="font-bold">User Login</section>
+        <section>
+          <button @click="open = false" class="bg-red-600 text-white border border-white p-2 rounded-full hover:bg-white hover:text-black hover:border hover:border-red-600">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x"
+              viewBox="0 0 16 16">
+              <path
+                d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+            </svg>
+          </button>
+        </section>
+      </div>
+      <form class="px-10 py-4 bg-white" action="#">
+        <input type="text"
+          class="block mt-2 w-full bg-gray-100 rounded focus:bg-white focus:border-0 focus:ring-2 focus:ring-red-600"
+          placeholder="Enter Your Email">
+        <input type="password"
+          class="block mt-2 w-full bg-gray-100 rounded focus:bg-white focus:border-0 focus:ring-2 focus:ring-red-600"
+          placeholder="Enter Your Password">
+        <button type="submit" class="block bg-red-600 p-2 text-white mt-2 rounded">Login</button>
+      </form>
+      <div class="text-center px-10 pb-4">
+        <section class="text-center">Forgot Your Password? <a href="#"
+            class="text-blue-700 hover:text-blue-900">Recover</a></section>
+        <section class="text-center">Don't have an account? <a href="#"
+            class="text-blue-700 hover:text-blue-900">Register</a></section>
+      </div>
+    </div>
+  </div>
 
   <main class="">
     <div class="container mx-4 grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-2">
