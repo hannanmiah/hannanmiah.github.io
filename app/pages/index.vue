@@ -63,43 +63,50 @@ const projects = [
     title: 'Dazzle.com.bd',
     description: 'High-traffic e-commerce platform. Backend Team Lead. Laravel API with Docker containerization for scalable deployment.',
     tags: ['Laravel', 'Docker', 'E-commerce'],
-    link: 'https://dazzle.com.bd'
+    link: 'https://dazzle.com.bd',
+    image: '/projects/dazzle.png'
   },
   {
     title: 'AmarSolution ERP',
     description: 'Comprehensive ERP solution with microservices architecture. Laravel API powering business process automation.',
     tags: ['Laravel', 'Microservices', 'ERP'],
-    link: ''
+    link: 'https://amarsolution.com',
+    image: '/projects/amarsolution.jpg'
   },
   {
     title: 'Swapix Ecommerce',
     description: 'UK-based e-commerce platform with real-time features. Built with Laravel, Nuxt, Inertia, and WebSocket.',
     tags: ['Laravel', 'Nuxt', 'WebSocket'],
-    link: ''
+    link: 'https://swapix.co.uk',
+    image: '/projects/swapix.png'
   },
   {
     title: 'TechMax POS',
     description: 'Point-of-sale software for UK businesses. Laravel backend with Inertia.js and Vue 3 frontend.',
     tags: ['Laravel', 'Inertia', 'Vue 3'],
-    link: ''
+    link: 'https://pos.tech-max.co.uk',
+    image: '/projects/techmax_pos.png'
   },
   {
     title: 'The Lead Library',
     description: 'CRM platform for student consultancy. Real-time features with WebSocket, built on Laravel and Vue.js.',
     tags: ['Laravel', 'Vue.js', 'MySQL'],
-    link: ''
+    link: 'https://bhe.theleadlibrary.com',
+    image: '/projects/lead_library.png'
   },
   {
     title: 'YourHouseTV',
     description: 'Streaming platform powered by Laravel, Reverb, and Inertia.js for real-time video delivery.',
     tags: ['Laravel', 'Reverb', 'Inertia'],
-    link: ''
+    link: 'https://yourhousetv.com',
+    image: '/projects/yourhousetv.png'
   },
   {
     title: 'Techdiary Blog',
     description: 'Open-source tech blog platform. Built with Laravel backend and Nuxt.js for the frontend.',
     tags: ['Laravel', 'Nuxt.js', 'Open Source'],
-    link: ''
+    link: 'https://techdiary.dev',
+    image: '/projects/techdiary.png'
   },
   {
     title: 'Nazmul Villa',
@@ -184,6 +191,16 @@ const awards = [
           size="xl"
           color="neutral"
           variant="subtle"
+        />
+        <UButton
+          to="/cv.pdf"
+          icon="i-lucide-download"
+          label="Download CV"
+          size="xl"
+          color="neutral"
+          variant="subtle"
+          target="_blank"
+          download
         />
         <UButton
           to="#contact"
@@ -294,29 +311,52 @@ const awards = [
       description="A selection of projects I've built and contributed to."
     >
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
-        <UCard
+        <component
+          :is="project.link ? 'a' : 'div'"
           v-for="(project, index) in projects"
           :key="index"
-          :to="project.link || undefined"
+          :href="project.link || undefined"
           :target="project.link ? '_blank' : undefined"
+          :rel="project.link ? 'noopener noreferrer' : undefined"
+          class="block"
         >
-          <h3 class="text-lg font-semibold text-highlighted mb-2">
-            {{ project.title }}
-          </h3>
-          <p class="text-sm text-muted mb-4">
-            {{ project.description }}
-          </p>
-          <div class="flex flex-wrap gap-1.5">
-            <UBadge
-              v-for="(tag, i) in project.tags"
-              :key="i"
-              :label="tag"
-              color="neutral"
-              variant="subtle"
-              size="sm"
-            />
-          </div>
-        </UCard>
+          <UCard>
+            <img
+              v-if="project.image"
+              :src="project.image"
+              :alt="`${project.title} thumbnail`"
+              class="w-full aspect-video object-cover rounded-lg mb-4 border border-default"
+            >
+            <div
+              v-else
+              class="w-full aspect-video rounded-lg mb-4 border border-default bg-elevated/50 flex flex-col items-center justify-center gap-2 text-muted"
+            >
+              <UIcon
+                name="i-lucide-image"
+                class="w-6 h-6"
+              />
+              <p class="text-xs">
+                No thumbnail for {{ project.title }} yet
+              </p>
+            </div>
+            <h3 class="text-lg font-semibold text-highlighted mb-2">
+              {{ project.title }}
+            </h3>
+            <p class="text-sm text-muted mb-4">
+              {{ project.description }}
+            </p>
+            <div class="flex flex-wrap gap-1.5">
+              <UBadge
+                v-for="(tag, i) in project.tags"
+                :key="i"
+                :label="tag"
+                color="neutral"
+                variant="subtle"
+                size="sm"
+              />
+            </div>
+          </UCard>
+        </component>
       </div>
     </UPageSection>
 
@@ -381,6 +421,15 @@ const awards = [
         }]"
       >
         <div class="flex items-center gap-4 mt-4">
+          <UButton
+            to="/cv.pdf"
+            target="_blank"
+            icon="i-lucide-download"
+            label="Download CV"
+            color="neutral"
+            variant="ghost"
+            download
+          />
           <UButton
             to="https://github.com/hannanmiah"
             target="_blank"
