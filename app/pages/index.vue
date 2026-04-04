@@ -1,24 +1,24 @@
 <script setup>
 const skills = [
   {
-    title: 'Frontend',
+    title: 'Frontend & Meta-Frameworks',
     icon: 'i-lucide-layout',
-    items: ['Vue.js', 'Nuxt.js', 'Inertia.js', 'Tailwind CSS']
+    items: ['Vue.js', 'Nuxt.js', 'ReactJs', 'Inertia.js', 'Livewire', 'AlpineJs', 'Tailwind CSS']
   },
   {
-    title: 'Backend',
+    title: 'Backend & Runtimes',
     icon: 'i-lucide-server',
-    items: ['PHP (Laravel)', 'Node.js (AdonisJS, Express)', 'Go (learning)', 'Microservices']
+    items: ['PHP (Laravel)', 'Node.js (HonoJs, AdonisJS, Express)', 'NitroJs', 'Go', 'Microservices']
   },
   {
-    title: 'Database',
+    title: 'Database & ORM',
     icon: 'i-lucide-database',
-    items: ['MySQL', 'PostgreSQL', 'Drizzle ORM', 'Eloquent', 'Prisma']
+    items: ['MySQL', 'PostgreSQL', 'Drizzle ORM', 'Eloquent', 'Prisma', 'Redis']
   },
   {
     title: 'DevOps',
     icon: 'i-lucide-cloud',
-    items: ['Docker', 'Nitro', 'Git', 'CI/CD', 'Redis']
+    items: ['Docker', 'Git', 'CI/CD', 'Nginx', 'Traefik', 'AWS']
   }
 ]
 
@@ -29,9 +29,9 @@ const experience = [
     period: '02/2025 – 02/2026',
     location: 'Uttara, Dhaka',
     description: [
-      'Developed and maintained AmarSolution ERP using Laravel API with microservices architecture',
-      'Designed scalable backend services for business process automation',
-      'Collaborated with cross-functional teams to deliver features on schedule'
+      'Architecting and maintaining the AmarSolution ERP, a leading enterprise resource planning tool in Bangladesh',
+      'Developing robust Laravel-based microservices to handle high-concurrency data processing',
+      'Collaborating with stakeholders to translate complex business requirements into scalable technical specifications'
     ]
   },
   {
@@ -40,9 +40,8 @@ const experience = [
     period: '04/2024 – 01/2025',
     location: 'Shyamloy, Dhaka',
     description: [
-      'Led backend development for Dazzle.com.bd e-commerce platform as Backend Team Lead',
-      'Architected Dockerized development and deployment workflows',
-      'Built and maintained multiple Laravel-based client projects'
+      'Led the backend engineering team, improving sprint delivery speed by mentoring junior developers and implementing code review standards',
+      'Managed end-to-end lifecycles for multiple client projects, ensuring on-time delivery and high-quality deployments'
     ]
   },
   {
@@ -51,9 +50,8 @@ const experience = [
     period: '06/2022 – 12/2022',
     location: 'Remote',
     description: [
-      'Developed web applications using Laravel and Vue.js stack',
-      'Implemented responsive UI components with Tailwind CSS',
-      'Managed database design and API development'
+      'Spearheaded the development of a custom CRM for student consultancy, integrating Laravel WebSockets for real-time notifications',
+      'Managed cloud infrastructure and automated deployment processes to reduce downtime'
     ]
   }
 ]
@@ -61,8 +59,8 @@ const experience = [
 const projects = [
   {
     title: 'Dazzle.com.bd',
-    description: 'High-traffic e-commerce platform. Backend Team Lead. Laravel API with Docker containerization for scalable deployment.',
-    tags: ['Laravel', 'Docker', 'E-commerce'],
+    description: 'Popular e-commerce platform in Bangladesh. Backend Team Lead and Project Manager. Next.js frontend, Laravel API backend, Reverb WebSocket, deployed on DigitalOcean with Docker.',
+    tags: ['Laravel', 'Next.js', 'Docker', 'E-commerce'],
     link: 'https://dazzle.com.bd',
     image: '/projects/dazzle.png'
   },
@@ -193,7 +191,7 @@ const awards = [
           variant="subtle"
         />
         <UButton
-          to="/cv.pdf"
+          to="/hannan_cv_4_apr_2026_latest.pdf"
           icon="i-lucide-download"
           label="Download CV"
           size="xl"
@@ -422,7 +420,7 @@ const awards = [
       >
         <div class="flex items-center gap-4 mt-4">
           <UButton
-            to="/cv.pdf"
+            to="/hannan_cv_4_apr_2026_latest.pdf"
             target="_blank"
             icon="i-lucide-download"
             label="Download CV"
