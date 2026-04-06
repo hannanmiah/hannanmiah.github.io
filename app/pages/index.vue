@@ -132,81 +132,128 @@ const awards = [
   'ICT Olympiad Bangladesh — University Team Lead',
   'Digital Marketing Training — LEDP Project by Govt. of Bangladesh'
 ]
+
+const aboutHighlights = [
+  { icon: 'i-lucide-code-xml', label: 'TALL & VILT Specialist' },
+  { icon: 'i-lucide-box', label: 'Microservices & ERP Systems' },
+  { icon: 'i-lucide-rocket', label: 'Production-ready Delivery' }
+]
+
+const floatingTechIcons = [
+  { name: 'i-simple-icons-laravel', position: 'left-[8%] top-[14%]', delay: '0s', duration: '8s' },
+  { name: 'i-simple-icons-nuxt', position: 'left-[18%] top-[65%]', delay: '1.2s', duration: '10s' },
+  { name: 'i-simple-icons-vuedotjs', position: 'left-[32%] top-[24%]', delay: '2.4s', duration: '9s' },
+  { name: 'i-simple-icons-tailwindcss', position: 'left-[44%] top-[70%]', delay: '0.8s', duration: '11s' },
+  { name: 'i-simple-icons-docker', position: 'right-[34%] top-[18%]', delay: '1.8s', duration: '8.5s' },
+  { name: 'i-simple-icons-mysql', position: 'right-[22%] top-[66%]', delay: '2.8s', duration: '10.5s' },
+  { name: 'i-simple-icons-postgresql', position: 'right-[12%] top-[36%]', delay: '0.5s', duration: '9.5s' },
+  { name: 'i-simple-icons-redis', position: 'right-[6%] top-[72%]', delay: '1.6s', duration: '12s' }
+]
 </script>
 
 <template>
-  <div>
+  <div class="portfolio-bg">
     <!-- Hero -->
     <UPageHero
-      class="pt-10 pb-16"
+      class="relative isolate overflow-hidden rounded-3xl border border-default/70 pt-12 pb-18 px-4 mb-8"
     >
+      <div class="pointer-events-none absolute inset-0 -z-10">
+        <div class="absolute inset-0 bg-linear-to-br from-primary/15 via-primary/5 to-transparent" />
+        <div class="absolute -top-32 left-1/2 -translate-x-1/2 h-72 w-72 rounded-full bg-primary/20 blur-3xl" />
+        <div class="absolute -bottom-32 right-1/4 h-72 w-72 rounded-full bg-info/20 blur-3xl" />
+
+        <div
+          v-for="(icon, index) in floatingTechIcons"
+          :key="`${icon.name}-${index}`"
+          class="absolute hidden md:block animate-float-tech rounded-xl border border-default/60 bg-default/60 p-2.5 text-primary shadow-sm backdrop-blur-sm"
+          :class="icon.position"
+          :style="{
+            animationDelay: icon.delay,
+            animationDuration: icon.duration
+          }"
+          aria-hidden="true"
+        >
+          <UIcon
+            :name="icon.name"
+            class="h-5 w-5"
+          />
+        </div>
+      </div>
+
       <template #headline>
         <div class="flex justify-center mb-6">
           <img
             src="/photo.jpg"
             alt="Hannan Miah"
-            class="w-32 h-32 rounded-full object-cover ring-4 ring-primary/20"
+            class="w-32 h-32 rounded-full object-cover ring-4 ring-primary/30 shadow-xl shadow-primary/20"
           >
         </div>
       </template>
 
       <template #title>
-        <span class="text-primary">Hannan Miah</span>
+        <span class="text-primary drop-shadow-sm">Hannan Miah</span>
       </template>
 
       <template #description>
-        <p class="text-xl font-medium text-highlighted mb-2">
+        <p class="text-xl font-semibold text-highlighted mb-2">
           Fullstack Software Developer
         </p>
-        <p class="text-base">
+        <p class="text-base md:text-lg text-toned">
           Results-driven Fullstack Developer with over 5 years of experience specializing in the TALL and VILT stacks. Proven track record in architecting scalable ERP systems, high-traffic e-commerce platforms, and microservices.
         </p>
       </template>
 
       <template #links>
-        <UButton
-          to="https://github.com/hannanmiah"
-          target="_blank"
-          icon="i-simple-icons-github"
-          label="GitHub"
-          size="xl"
-          color="neutral"
-          variant="subtle"
-        />
-        <UButton
-          to="https://linkedin.com/in/hannanmiah"
-          target="_blank"
-          icon="i-simple-icons-linkedin"
-          label="LinkedIn"
-          size="xl"
-          color="neutral"
-          variant="subtle"
-        />
-        <UButton
-          to="mailto:hannanhridoy@gmail.com"
-          icon="i-lucide-mail"
-          label="Email"
-          size="xl"
-          color="neutral"
-          variant="subtle"
-        />
-        <UButton
-          to="/hannan_cv_4_apr_2026_latest.pdf"
-          icon="i-lucide-download"
-          label="Download CV"
-          size="xl"
-          color="neutral"
-          variant="subtle"
-          target="_blank"
-          download
-        />
-        <UButton
-          to="#contact"
-          icon="i-lucide-file-text"
-          label="Contact Me"
-          size="xl"
-          trailing-icon="i-lucide-arrow-right"
-        />
+        <div class="hero-actions">
+          <UButton
+            to="#contact"
+            icon="i-lucide-sparkles"
+            label="Let’s Build Together"
+            size="xl"
+            trailing-icon="i-lucide-arrow-right"
+            class="hero-action-btn hero-action-btn-primary"
+          />
+          <UButton
+            to="/hannan_cv_4_apr_2026_latest.pdf"
+            icon="i-lucide-download"
+            label="Download CV"
+            size="xl"
+            color="neutral"
+            variant="subtle"
+            target="_blank"
+            download
+            class="hero-action-btn"
+          />
+          <UButton
+            to="https://github.com/hannanmiah"
+            target="_blank"
+            icon="i-simple-icons-github"
+            label="GitHub"
+            size="xl"
+            color="neutral"
+            variant="subtle"
+            class="hero-action-btn"
+          />
+          <UButton
+            to="https://linkedin.com/in/hannanmiah"
+            target="_blank"
+            icon="i-simple-icons-linkedin"
+            label="LinkedIn"
+            size="xl"
+            color="neutral"
+            variant="subtle"
+            class="hero-action-btn"
+          />
+          <UButton
+            to="mailto:hannanhridoy@gmail.com"
+            icon="i-lucide-mail"
+            label="Email"
+            size="xl"
+            color="neutral"
+            variant="subtle"
+            class="hero-action-btn"
+          />
+        </div>
       </template>
     </UPageHero>
 
@@ -217,32 +264,81 @@ const awards = [
       description="A brief overview of who I am and what I do."
     >
       <div class="max-w-3xl mx-auto">
-        <UCard>
-          <p class="text-base leading-relaxed text-muted">
-            Results-driven Fullstack Developer with over 5 years of experience specializing in the TALL and VILT stacks (Laravel, Vue.js, Inertia, Tailwind). Proven track record in architecting scalable ERP systems, high-traffic e-commerce platforms, and microservices. Expert in Dockerized environments and CI/CD workflows, with a passion for writing clean, testable code and leading cross-functional teams.
-          </p>
-          <div class="mt-6 flex flex-wrap gap-4 text-sm text-muted">
-            <span class="flex items-center gap-1.5">
-              <UIcon
-                name="i-lucide-map-pin"
-                class="w-4 h-4"
+        <UCard class="portfolio-card about-card">
+          <div class="about-glow" />
+
+          <div class="relative z-10">
+            <div class="flex flex-wrap items-center gap-2 mb-4">
+              <UBadge
+                color="primary"
+                variant="soft"
+                label="Available for fullstack roles"
+                icon="i-lucide-sparkles"
               />
-              Uttara, Dhaka, Bangladesh
-            </span>
-            <span class="flex items-center gap-1.5">
-              <UIcon
-                name="i-lucide-briefcase"
-                class="w-4 h-4"
+              <UBadge
+                color="neutral"
+                variant="soft"
+                label="Remote / On-site"
+                icon="i-lucide-earth"
               />
-              5+ Years Experience
-            </span>
-            <span class="flex items-center gap-1.5">
-              <UIcon
-                name="i-lucide-graduation-cap"
-                class="w-4 h-4"
-              />
-              B.Sc. in EEE
-            </span>
+            </div>
+
+            <p class="text-base leading-relaxed text-toned">
+              Results-driven Fullstack Developer with over 5 years of experience specializing in the TALL and VILT stacks (Laravel, Vue.js, Inertia, Tailwind). Proven track record in architecting scalable ERP systems, high-traffic e-commerce platforms, and microservices. Expert in Dockerized environments and CI/CD workflows, with a passion for writing clean, testable code and leading cross-functional teams.
+            </p>
+
+            <div class="mt-5 flex flex-wrap gap-2.5">
+              <span
+                v-for="(item, index) in aboutHighlights"
+                :key="index"
+                class="about-chip"
+              >
+                <UIcon
+                  :name="item.icon"
+                  class="w-3.5 h-3.5"
+                />
+                {{ item.label }}
+              </span>
+            </div>
+
+            <div class="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-3">
+              <div class="about-stat">
+                <UIcon
+                  name="i-lucide-map-pin"
+                  class="w-4 h-4 text-primary"
+                />
+                <p class="text-sm font-medium text-highlighted">
+                  Uttara, Dhaka
+                </p>
+                <p class="text-xs text-muted">
+                  Bangladesh
+                </p>
+              </div>
+              <div class="about-stat">
+                <UIcon
+                  name="i-lucide-briefcase-business"
+                  class="w-4 h-4 text-primary"
+                />
+                <p class="text-sm font-medium text-highlighted">
+                  5+ Years
+                </p>
+                <p class="text-xs text-muted">
+                  Professional Experience
+                </p>
+              </div>
+              <div class="about-stat">
+                <UIcon
+                  name="i-lucide-graduation-cap"
+                  class="w-4 h-4 text-primary"
+                />
+                <p class="text-sm font-medium text-highlighted">
+                  B.Sc. in EEE
+                </p>
+                <p class="text-xs text-muted">
+                  Engineering Background
+                </p>
+              </div>
+            </div>
           </div>
         </UCard>
       </div>
@@ -253,12 +349,44 @@ const awards = [
       id="skills"
       title="Technical Skills"
       description="Technologies and tools I work with on a daily basis."
-      :features="skills.map(s => ({
-        icon: s.icon,
-        title: s.title,
-        description: s.items.join(' · ')
-      }))"
-    />
+    >
+      <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-5">
+        <UCard
+          v-for="(skill, index) in skills"
+          :key="index"
+          class="portfolio-card skills-card"
+        >
+          <template #header>
+            <div class="flex items-center gap-3">
+              <div class="skills-icon-wrap">
+                <UIcon
+                  :name="skill.icon"
+                  class="w-5 h-5"
+                />
+              </div>
+              <div>
+                <h3 class="text-base font-semibold text-highlighted">
+                  {{ skill.title }}
+                </h3>
+                <p class="text-xs text-muted">
+                  Core tools I use in production
+                </p>
+              </div>
+            </div>
+          </template>
+
+          <div class="skills-tags">
+            <span
+              v-for="(item, i) in skill.items"
+              :key="i"
+              class="skills-tag"
+            >
+              {{ item }}
+            </span>
+          </div>
+        </UCard>
+      </div>
+    </UPageSection>
 
     <!-- Experience -->
     <UPageSection
@@ -266,39 +394,51 @@ const awards = [
       title="Work Experience"
       description="My professional journey building software solutions."
     >
-      <div class="space-y-6 max-w-3xl mx-auto">
-        <UCard
+      <div class="timeline-wrap max-w-4xl mx-auto">
+        <div class="timeline-line" />
+
+        <div
           v-for="(job, index) in experience"
           :key="index"
+          class="timeline-item"
         >
-          <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1 mb-3">
-            <div>
-              <h3 class="text-lg font-semibold text-highlighted">
-                {{ job.role }}
-              </h3>
-              <p class="text-primary font-medium">
-                {{ job.company }}
-              </p>
-            </div>
-            <div class="text-sm text-muted text-right shrink-0">
-              <p>{{ job.period }}</p>
-              <p>{{ job.location }}</p>
-            </div>
+          <div class="timeline-dot">
+            <UIcon
+              name="i-lucide-briefcase-business"
+              class="w-4 h-4"
+            />
           </div>
-          <ul class="space-y-1.5">
-            <li
-              v-for="(item, i) in job.description"
-              :key="i"
-              class="flex items-start gap-2 text-sm text-muted"
-            >
-              <UIcon
-                name="i-lucide-chevron-right"
-                class="w-4 h-4 mt-0.5 text-primary shrink-0"
-              />
-              {{ item }}
-            </li>
-          </ul>
-        </UCard>
+
+          <UCard class="portfolio-card timeline-content">
+            <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1 mb-3">
+              <div>
+                <h3 class="text-lg font-semibold text-highlighted">
+                  {{ job.role }}
+                </h3>
+                <p class="text-primary font-medium">
+                  {{ job.company }}
+                </p>
+              </div>
+              <div class="text-sm text-muted sm:text-right shrink-0">
+                <p>{{ job.period }}</p>
+                <p>{{ job.location }}</p>
+              </div>
+            </div>
+            <ul class="space-y-1.5">
+              <li
+                v-for="(item, i) in job.description"
+                :key="i"
+                class="flex items-start gap-2 text-sm text-muted"
+              >
+                <UIcon
+                  name="i-lucide-chevron-right"
+                  class="w-4 h-4 mt-0.5 text-primary shrink-0"
+                />
+                {{ item }}
+              </li>
+            </ul>
+          </UCard>
+        </div>
       </div>
     </UPageSection>
 
@@ -316,41 +456,70 @@ const awards = [
           :href="project.link || undefined"
           :target="project.link ? '_blank' : undefined"
           :rel="project.link ? 'noopener noreferrer' : undefined"
-          class="block"
+          class="block project-showcase"
         >
-          <UCard>
-            <img
-              v-if="project.image"
-              :src="project.image"
-              :alt="`${project.title} thumbnail`"
-              class="w-full aspect-video object-cover rounded-lg mb-4 border border-default"
-            >
-            <div
-              v-else
-              class="w-full aspect-video rounded-lg mb-4 border border-default bg-elevated/50 flex flex-col items-center justify-center gap-2 text-muted"
-            >
-              <UIcon
-                name="i-lucide-image"
-                class="w-6 h-6"
-              />
-              <p class="text-xs">
-                No thumbnail for {{ project.title }} yet
-              </p>
+          <UCard class="portfolio-card h-full project-card">
+            <div class="project-media-wrap mb-4">
+              <img
+                v-if="project.image"
+                :src="project.image"
+                :alt="`${project.title} thumbnail`"
+                class="project-media"
+              >
+              <div
+                v-else
+                class="project-media project-media-fallback"
+              >
+                <UIcon
+                  name="i-lucide-image"
+                  class="w-6 h-6"
+                />
+                <p class="text-xs">
+                  No thumbnail for {{ project.title }} yet
+                </p>
+              </div>
+
+              <div class="project-media-overlay">
+                <p class="text-sm font-medium text-white/90">
+                  {{ project.title }}
+                </p>
+                <span
+                  v-if="project.link"
+                  class="project-visit-chip"
+                >
+                  Visit Project
+                  <UIcon
+                    name="i-lucide-arrow-up-right"
+                    class="w-3.5 h-3.5"
+                  />
+                </span>
+              </div>
             </div>
-            <h3 class="text-lg font-semibold text-highlighted mb-2">
-              {{ project.title }}
-            </h3>
-            <p class="text-sm text-muted mb-4">
+
+            <div class="flex items-start justify-between gap-3 mb-2">
+              <h3 class="text-lg font-semibold text-highlighted leading-tight">
+                {{ project.title }}
+              </h3>
+              <UIcon
+                v-if="project.link"
+                name="i-lucide-external-link"
+                class="w-4 h-4 text-primary shrink-0 mt-1"
+              />
+            </div>
+
+            <p class="text-sm text-muted mb-4 line-clamp-4">
               {{ project.description }}
             </p>
-            <div class="flex flex-wrap gap-1.5">
+
+            <div class="flex flex-wrap gap-1.5 mt-auto">
               <UBadge
                 v-for="(tag, i) in project.tags"
                 :key="i"
                 :label="tag"
-                color="neutral"
-                variant="subtle"
+                color="primary"
+                variant="soft"
                 size="sm"
+                class="project-tag"
               />
             </div>
           </UCard>
@@ -364,37 +533,57 @@ const awards = [
       title="Education & Awards"
       description="Academic background and achievements."
     >
-      <div class="max-w-3xl mx-auto space-y-6">
-        <UCard>
-          <h3 class="text-lg font-semibold text-highlighted mb-1">
-            B.Sc. in Electrical and Electronic Engineering
-          </h3>
-          <p class="text-primary font-medium mb-1">
-            Bangabandhu Sheikh Mujibur Rahman Science and Technology University
-          </p>
-          <p class="text-sm text-muted">
-            Gopalganj &middot; 2016–2023
-          </p>
-        </UCard>
+      <div class="timeline-wrap max-w-4xl mx-auto">
+        <div class="timeline-line" />
 
-        <UCard>
-          <h3 class="text-lg font-semibold text-highlighted mb-4">
-            Awards & Certifications
-          </h3>
-          <ul class="space-y-2">
-            <li
-              v-for="(award, index) in awards"
-              :key="index"
-              class="flex items-start gap-2 text-sm text-muted"
-            >
-              <UIcon
-                name="i-lucide-award"
-                class="w-4 h-4 mt-0.5 text-primary shrink-0"
-              />
-              {{ award }}
-            </li>
-          </ul>
-        </UCard>
+        <div class="timeline-item">
+          <div class="timeline-dot">
+            <UIcon
+              name="i-lucide-graduation-cap"
+              class="w-4 h-4"
+            />
+          </div>
+
+          <UCard class="portfolio-card timeline-content">
+            <h3 class="text-lg font-semibold text-highlighted mb-1">
+              B.Sc. in Electrical and Electronic Engineering
+            </h3>
+            <p class="text-primary font-medium mb-1">
+              Bangabandhu Sheikh Mujibur Rahman Science and Technology University
+            </p>
+            <p class="text-sm text-muted">
+              Gopalganj &middot; 2016–2023
+            </p>
+          </UCard>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot">
+            <UIcon
+              name="i-lucide-award"
+              class="w-4 h-4"
+            />
+          </div>
+
+          <UCard class="portfolio-card timeline-content">
+            <h3 class="text-lg font-semibold text-highlighted mb-4">
+              Awards & Certifications
+            </h3>
+            <ul class="space-y-2">
+              <li
+                v-for="(award, index) in awards"
+                :key="index"
+                class="flex items-start gap-2 text-sm text-muted"
+              >
+                <UIcon
+                  name="i-lucide-chevron-right"
+                  class="w-4 h-4 mt-0.5 text-primary shrink-0"
+                />
+                {{ award }}
+              </li>
+            </ul>
+          </UCard>
+        </div>
       </div>
     </UPageSection>
 
@@ -405,6 +594,7 @@ const awards = [
         title="Get In Touch"
         description="Interested in working together? Feel free to reach out."
         variant="subtle"
+        class="portfolio-card"
         :links="[{
           label: 'hannanhridoy@gmail.com',
           to: 'mailto:hannanhridoy@gmail.com',
