@@ -1,4 +1,11 @@
 <script setup>
+const stats = [
+  { value: '5+', label: 'Years Exp.', icon: 'i-lucide-briefcase-business' },
+  { value: '10+', label: 'Projects', icon: 'i-lucide-folder-open' },
+  { value: '4', label: 'Industry Awards', icon: 'i-lucide-award' },
+  { value: '100%', label: 'Client Joy', icon: 'i-lucide-heart-handshake' }
+]
+
 const skills = [
   {
     title: 'Frontend & Meta-Frameworks',
@@ -20,6 +27,15 @@ const skills = [
     icon: 'i-lucide-cloud',
     items: ['Docker', 'Git', 'CI/CD', 'Nginx', 'Traefik', 'AWS']
   }
+]
+
+const technicalSkills = [
+  { name: 'Laravel / PHP', level: 95 },
+  { name: 'Vue.js / Nuxt.js', level: 90 },
+  { name: 'Tailwind CSS', level: 92 },
+  { name: 'Docker / DevOps', level: 80 },
+  { name: 'MySQL / PostgreSQL', level: 88 },
+  { name: 'Go', level: 60 }
 ]
 
 const experience = [
@@ -139,510 +155,746 @@ const aboutHighlights = [
   { icon: 'i-lucide-rocket', label: 'Production-ready Delivery' }
 ]
 
-const floatingTechIcons = [
-  { name: 'i-simple-icons-laravel', position: 'left-[8%] top-[14%]', delay: '0s', duration: '8s' },
-  { name: 'i-simple-icons-nuxt', position: 'left-[18%] top-[65%]', delay: '1.2s', duration: '10s' },
-  { name: 'i-simple-icons-vuedotjs', position: 'left-[32%] top-[24%]', delay: '2.4s', duration: '9s' },
-  { name: 'i-simple-icons-tailwindcss', position: 'left-[44%] top-[70%]', delay: '0.8s', duration: '11s' },
-  { name: 'i-simple-icons-docker', position: 'right-[34%] top-[18%]', delay: '1.8s', duration: '8.5s' },
-  { name: 'i-simple-icons-mysql', position: 'right-[22%] top-[66%]', delay: '2.8s', duration: '10.5s' },
-  { name: 'i-simple-icons-postgresql', position: 'right-[12%] top-[36%]', delay: '0.5s', duration: '9.5s' },
-  { name: 'i-simple-icons-redis', position: 'right-[6%] top-[72%]', delay: '1.6s', duration: '12s' }
+const strategicMetrics = [
+  { name: 'Architecture & Design', pct: 95 },
+  { name: 'Performance Optimization', pct: 88 },
+  { name: 'Security Best Practices', pct: 82 }
 ]
 </script>
 
 <template>
-  <div class="portfolio-bg">
-    <!-- Hero -->
-    <UPageHero
-      class="relative isolate overflow-hidden rounded-3xl border border-default/70 pt-12 pb-18 px-4 mb-8"
-    >
-      <div class="pointer-events-none absolute inset-0 -z-10">
-        <div class="absolute inset-0 bg-linear-to-br from-primary/15 via-primary/5 to-transparent" />
-        <div class="absolute -top-32 left-1/2 -translate-x-1/2 h-72 w-72 rounded-full bg-primary/20 blur-3xl" />
-        <div class="absolute -bottom-32 right-1/4 h-72 w-72 rounded-full bg-info/20 blur-3xl" />
+  <div>
+    <!-- Hero Section -->
+    <section class="max-w-[1200px] mx-auto px-6 pt-20 pb-[80px] flex flex-col items-center text-center">
+      <!-- Availability badge -->
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-surface-container-low border border-outline-variant/30 mb-6">
+        <span class="w-2 h-2 rounded-full bg-primary animate-pulse" />
+        <span class="text-sm font-semibold text-secondary uppercase tracking-[0.05em]">Available for new opportunities</span>
+      </div>
 
+      <h1 class="text-[48px] font-extrabold leading-[1.1] tracking-[-0.02em] text-on-background mb-6 max-w-4xl">
+        Crafting digital experiences with <span class="text-primary">technical precision</span> and creative flair.
+      </h1>
+
+      <p class="text-lg leading-[1.6] text-secondary max-w-2xl mb-12">
+        Results-driven Fullstack Developer with over 5 years of experience specializing in the TALL and VILT stacks. Proven track record in architecting scalable ERP systems, high-traffic e-commerce platforms, and microservices.
+      </p>
+
+      <div class="flex flex-wrap justify-center gap-4">
+        <a
+          href="#projects"
+          class="bg-primary text-on-primary px-8 py-4 rounded-lg text-sm font-semibold flex items-center gap-2 hover:bg-on-primary-fixed-variant transition-colors"
+        >
+          View My Work
+          <UIcon
+            name="i-lucide-arrow-right"
+            class="w-5 h-5"
+          />
+        </a>
+        <a
+          href="#experience"
+          class="border border-outline text-on-background px-8 py-4 rounded-lg text-sm font-semibold hover:bg-surface-container-high transition-colors"
+        >
+          The Process
+        </a>
+      </div>
+    </section>
+
+    <!-- Stats Bento Grid -->
+    <section class="max-w-[1200px] mx-auto px-6 pb-[48px]">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
         <div
-          v-for="(icon, index) in floatingTechIcons"
-          :key="`${icon.name}-${index}`"
-          class="absolute hidden md:block animate-float-tech rounded-xl border border-default/60 bg-default/60 p-2.5 text-primary shadow-sm backdrop-blur-sm"
-          :class="icon.position"
-          :style="{
-            animationDelay: icon.delay,
-            animationDuration: icon.duration
-          }"
-          aria-hidden="true"
+          v-for="stat in stats"
+          :key="stat.label"
+          class="bg-white border border-slate-100 p-8 rounded-xl shadow-[0px_4px_20px_rgba(15,23,42,0.05)] text-center"
         >
           <UIcon
-            :name="icon.name"
-            class="h-5 w-5"
+            :name="stat.icon"
+            class="w-6 h-6 text-primary mx-auto mb-3"
           />
+          <span class="text-[32px] font-bold leading-[1.2] tracking-[-0.01em] text-primary block">
+            {{ stat.value }}
+          </span>
+          <span class="text-sm font-semibold tracking-[0.05em] text-secondary uppercase">
+            {{ stat.label }}
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section
+      id="about"
+      class="max-w-[1200px] mx-auto px-6 py-[80px] grid md:grid-cols-2 gap-6 items-center"
+    >
+      <div class="space-y-6">
+        <div class="inline-flex items-center px-3 py-1 bg-surface-container rounded-full gap-2 border border-outline-variant/30">
+          <span class="w-2 h-2 rounded-full bg-primary animate-pulse" />
+          <span class="text-sm font-semibold text-secondary uppercase tracking-[0.05em]">Digital Craftsman</span>
+        </div>
+
+        <h2 class="text-[48px] font-extrabold leading-[1.1] tracking-[-0.02em] text-on-background">
+          Crafting digital solutions with <span class="text-primary">technical precision</span>.
+        </h2>
+
+        <p class="text-lg leading-[1.6] text-secondary max-w-lg">
+          I bridge the gap between complex engineering and human-centric design. My work is defined by a commitment to performance, accessibility, and clean architecture.
+        </p>
+
+        <div class="flex flex-wrap gap-2 pt-2">
+          <span
+            v-for="(item, index) in aboutHighlights"
+            :key="index"
+            class="px-3 py-1 bg-surface-container text-secondary text-sm font-semibold rounded-full border border-outline-variant/30"
+          >
+            {{ item.label }}
+          </span>
+        </div>
+
+        <div class="flex flex-wrap gap-4 pt-2">
+          <a
+            href="/hannan_cv_4_apr_2026_latest.pdf"
+            target="_blank"
+            download
+            class="bg-primary text-on-primary px-8 py-3 rounded-lg text-sm font-semibold hover:shadow-lg transition-all active:scale-95"
+          >
+            Download CV
+          </a>
+          <a
+            href="#experience"
+            class="border border-outline text-on-surface px-8 py-3 rounded-lg text-sm font-semibold hover:bg-surface-container transition-all active:scale-95"
+          >
+            View Philosophy
+          </a>
         </div>
       </div>
 
-      <template #headline>
-        <div class="flex justify-center mb-6">
+      <div class="relative">
+        <div class="aspect-square rounded-2xl overflow-hidden shadow-2xl relative z-10 border-4 border-white">
           <img
             src="/photo.jpg"
             alt="Hannan Miah"
-            class="w-32 h-32 rounded-full object-cover ring-4 ring-primary/30 shadow-xl shadow-primary/20"
+            class="w-full h-full object-cover"
           >
         </div>
-      </template>
+        <!-- Decorative elements -->
+        <div class="absolute -top-6 -right-6 w-32 h-32 bg-primary-container/20 rounded-full blur-3xl" />
+        <div class="absolute -bottom-10 -left-10 w-48 h-48 bg-secondary-container/30 rounded-full blur-3xl" />
+      </div>
+    </section>
 
-      <template #title>
-        <span class="text-primary drop-shadow-sm">Hannan Miah</span>
-      </template>
-
-      <template #description>
-        <p class="text-xl font-semibold text-highlighted mb-2">
-          Fullstack Software Developer
-        </p>
-        <p class="text-base md:text-lg text-toned">
-          Results-driven Fullstack Developer with over 5 years of experience specializing in the TALL and VILT stacks. Proven track record in architecting scalable ERP systems, high-traffic e-commerce platforms, and microservices.
-        </p>
-      </template>
-
-      <template #links>
-        <div class="hero-actions">
-          <UButton
-            to="#contact"
-            icon="i-lucide-sparkles"
-            label="Let’s Build Together"
-            size="xl"
-            trailing-icon="i-lucide-arrow-right"
-            class="hero-action-btn hero-action-btn-primary"
-          />
-          <UButton
-            to="/hannan_cv_4_apr_2026_latest.pdf"
-            icon="i-lucide-download"
-            label="Download CV"
-            size="xl"
-            color="neutral"
-            variant="subtle"
-            target="_blank"
-            download
-            class="hero-action-btn"
-          />
-          <UButton
-            to="https://github.com/hannanmiah"
-            target="_blank"
-            icon="i-simple-icons-github"
-            label="GitHub"
-            size="xl"
-            color="neutral"
-            variant="subtle"
-            class="hero-action-btn"
-          />
-          <UButton
-            to="https://linkedin.com/in/hannanmiah"
-            target="_blank"
-            icon="i-simple-icons-linkedin"
-            label="LinkedIn"
-            size="xl"
-            color="neutral"
-            variant="subtle"
-            class="hero-action-btn"
-          />
-          <UButton
-            to="mailto:hannanhridoy@gmail.com"
-            icon="i-lucide-mail"
-            label="Email"
-            size="xl"
-            color="neutral"
-            variant="subtle"
-            class="hero-action-btn"
-          />
-        </div>
-      </template>
-    </UPageHero>
-
-    <!-- About -->
-    <UPageSection
-      id="about"
-      title="About Me"
-      description="A brief overview of who I am and what I do."
+    <!-- Core Expertise Bento Grid -->
+    <section
+      id="expertise"
+      class="bg-surface-container-low py-[80px]"
     >
-      <div class="max-w-3xl mx-auto">
-        <UCard class="portfolio-card about-card">
-          <div class="about-glow" />
+      <div class="max-w-[1200px] mx-auto px-6">
+        <div class="mb-12">
+          <h2 class="text-[32px] font-bold leading-[1.2] tracking-[-0.01em] text-on-background mb-4">
+            Core Expertise
+          </h2>
+          <p class="text-base leading-[1.6] text-secondary">
+            A balanced mix of technical stacks and creative disciplines.
+          </p>
+        </div>
 
-          <div class="relative z-10">
-            <div class="flex flex-wrap items-center gap-2 mb-4">
-              <UBadge
-                color="primary"
-                variant="soft"
-                label="Available for fullstack roles"
-                icon="i-lucide-sparkles"
-              />
-              <UBadge
-                color="neutral"
-                variant="soft"
-                label="Remote / On-site"
-                icon="i-lucide-earth"
-              />
-            </div>
-
-            <p class="text-base leading-relaxed text-toned">
-              Results-driven Fullstack Developer with over 5 years of experience specializing in the TALL and VILT stacks (Laravel, Vue.js, Inertia, Tailwind). Proven track record in architecting scalable ERP systems, high-traffic e-commerce platforms, and microservices. Expert in Dockerized environments and CI/CD workflows, with a passion for writing clean, testable code and leading cross-functional teams.
-            </p>
-
-            <div class="mt-5 flex flex-wrap gap-2.5">
-              <span
-                v-for="(item, index) in aboutHighlights"
-                :key="index"
-                class="about-chip"
-              >
+        <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          <!-- Tech Stack: Large Span -->
+          <div class="md:col-span-2 bg-white p-8 rounded-xl border border-slate-100 shadow-[0px_4px_20px_rgba(15,23,42,0.05)] hover:border-primary/30 transition-all group">
+            <div class="flex justify-between items-start mb-6">
+              <div class="p-3 bg-primary-container/20 rounded-lg text-primary">
                 <UIcon
-                  :name="item.icon"
-                  class="w-3.5 h-3.5"
+                  name="i-lucide-code"
+                  class="w-6 h-6"
                 />
-                {{ item.label }}
+              </div>
+              <span class="text-sm font-semibold text-primary opacity-0 group-hover:opacity-100 transition-opacity">
+                Fullstack Development
               </span>
             </div>
+            <h3 class="text-2xl font-semibold leading-[1.3] mb-4 text-on-background">
+              The Technical Engine
+            </h3>
+            <p class="text-base text-secondary mb-6">
+              Building robust systems using modern frameworks. Architecture that scales with your business needs.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span
+                v-for="item in [...skills[1].items, ...skills[2].items]"
+                :key="item"
+                class="px-3 py-1 bg-surface-container text-secondary text-sm font-semibold rounded-full border border-outline-variant/30"
+              >
+                {{ item }}
+              </span>
+            </div>
+          </div>
 
-            <div class="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-3">
-              <div class="about-stat">
-                <UIcon
-                  name="i-lucide-map-pin"
-                  class="w-4 h-4 text-primary"
-                />
-                <p class="text-sm font-medium text-highlighted">
-                  Uttara, Dhaka
+          <!-- Visual Craft -->
+          <div class="bg-white p-8 rounded-xl border border-slate-100 shadow-[0px_4px_20px_rgba(15,23,42,0.05)] hover:border-primary/30 transition-all">
+            <div class="p-3 bg-secondary-container rounded-lg text-on-secondary-container w-fit mb-6">
+              <UIcon
+                name="i-lucide-palette"
+                class="w-6 h-6"
+              />
+            </div>
+            <h3 class="text-2xl font-semibold leading-[1.3] mb-2 text-on-background">
+              Visual Craft
+            </h3>
+            <p class="text-base text-secondary">
+              Aesthetic precision meets functional clarity.
+            </p>
+          </div>
+
+          <!-- Infrastructure -->
+          <div class="bg-white p-8 rounded-xl border border-slate-100 shadow-[0px_4px_20px_rgba(15,23,42,0.05)] hover:border-primary/30 transition-all">
+            <div class="p-3 bg-tertiary-container rounded-lg text-on-tertiary-container w-fit mb-6">
+              <UIcon
+                name="i-lucide-cloud"
+                class="w-6 h-6"
+              />
+            </div>
+            <h3 class="text-2xl font-semibold leading-[1.3] mb-2 text-on-background">
+              Infrastructure
+            </h3>
+            <p class="text-base text-secondary">
+              Optimizing for speed, safety, and 99.9% uptime.
+            </p>
+          </div>
+
+          <!-- Terminal Experience Card -->
+          <div class="md:col-span-2 lg:col-span-1 bg-inverse-surface p-8 rounded-xl shadow-xl flex flex-col justify-between overflow-hidden relative group">
+            <div class="relative z-10">
+              <h3 class="text-2xl font-semibold leading-[1.3] text-white mb-2 font-mono">
+                system.log
+              </h3>
+              <div class="space-y-1 font-mono text-xs text-primary-fixed-dim/80">
+                <p>
+                  > initializing_creative_process...
                 </p>
-                <p class="text-xs text-muted">
-                  Bangladesh
+                <p>
+                  > mapping_user_journey...
                 </p>
-              </div>
-              <div class="about-stat">
-                <UIcon
-                  name="i-lucide-briefcase-business"
-                  class="w-4 h-4 text-primary"
-                />
-                <p class="text-sm font-medium text-highlighted">
-                  5+ Years
+                <p>
+                  > refining_design_tokens...
                 </p>
-                <p class="text-xs text-muted">
-                  Professional Experience
-                </p>
-              </div>
-              <div class="about-stat">
-                <UIcon
-                  name="i-lucide-graduation-cap"
-                  class="w-4 h-4 text-primary"
-                />
-                <p class="text-sm font-medium text-highlighted">
-                  B.Sc. in EEE
-                </p>
-                <p class="text-xs text-muted">
-                  Engineering Background
+                <p class="text-white">
+                  > status: optimal
                 </p>
               </div>
             </div>
+            <div class="absolute -bottom-8 -right-8 opacity-10 group-hover:opacity-20 transition-opacity">
+              <UIcon
+                name="i-lucide-terminal"
+                class="w-[120px] h-[120px] text-white"
+              />
+            </div>
           </div>
-        </UCard>
-      </div>
-    </UPageSection>
 
-    <!-- Skills -->
-    <UPageSection
-      id="skills"
-      title="Technical Skills"
-      description="Technologies and tools I work with on a daily basis."
-    >
-      <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-5">
-        <UCard
-          v-for="(skill, index) in skills"
-          :key="index"
-          class="portfolio-card skills-card"
-        >
-          <template #header>
-            <div class="flex items-center gap-3">
-              <div class="skills-icon-wrap">
+          <!-- Strategic Design with progress bars -->
+          <div class="md:col-span-2 bg-white p-8 rounded-xl border border-slate-100 shadow-[0px_4px_20px_rgba(15,23,42,0.05)] hover:border-primary/30 transition-all flex flex-col md:flex-row gap-6">
+            <div class="md:w-1/2">
+              <div class="p-3 bg-surface-container rounded-lg text-on-background w-fit mb-6">
                 <UIcon
-                  :name="skill.icon"
-                  class="w-5 h-5"
+                  name="i-lucide-target"
+                  class="w-6 h-6"
                 />
               </div>
-              <div>
-                <h3 class="text-base font-semibold text-highlighted">
-                  {{ skill.title }}
-                </h3>
-                <p class="text-xs text-muted">
-                  Core tools I use in production
-                </p>
+              <h3 class="text-2xl font-semibold leading-[1.3] mb-4 text-on-background">
+                Strategic Design
+              </h3>
+              <p class="text-base text-secondary">
+                Beyond just pixels — solving real business problems through design-led thinking and data-driven insights.
+              </p>
+            </div>
+            <div class="md:w-1/2 flex items-center justify-center p-4 bg-background rounded-lg border border-slate-50">
+              <div class="w-full space-y-4">
+                <div
+                  v-for="metric in strategicMetrics"
+                  :key="metric.name"
+                >
+                  <div class="h-2 w-full bg-surface-container rounded-full overflow-hidden">
+                    <div
+                      class="h-full bg-primary"
+                      :style="{ width: metric.pct + '%' }"
+                    />
+                  </div>
+                </div>
               </div>
             </div>
-          </template>
-
-          <div class="skills-tags">
-            <span
-              v-for="(item, i) in skill.items"
-              :key="i"
-              class="skills-tag"
-            >
-              {{ item }}
-            </span>
           </div>
-        </UCard>
-      </div>
-    </UPageSection>
 
-    <!-- Experience -->
-    <UPageSection
+          <!-- Frontend skills card -->
+          <div class="bg-white p-8 rounded-xl border border-slate-100 shadow-[0px_4px_20px_rgba(15,23,42,0.05)] hover:border-primary/30 transition-all">
+            <div class="p-3 bg-primary-container/20 rounded-lg text-primary w-fit mb-6">
+              <UIcon
+                name="i-lucide-layout"
+                class="w-6 h-6"
+              />
+            </div>
+            <h3 class="text-2xl font-semibold leading-[1.3] mb-2 text-on-background">
+              Frontend Stack
+            </h3>
+            <div class="flex flex-wrap gap-2 mt-4">
+              <span
+                v-for="item in skills[0].items"
+                :key="item"
+                class="px-3 py-1 bg-surface-container text-secondary text-sm font-semibold rounded-full border border-outline-variant/30"
+              >
+                {{ item }}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience Timeline -->
+    <section
       id="experience"
-      title="Work Experience"
-      description="My professional journey building software solutions."
+      class="max-w-[1200px] mx-auto px-6 py-[80px]"
     >
-      <div class="timeline-wrap max-w-4xl mx-auto">
-        <div class="timeline-line" />
+      <div class="text-center mb-[80px]">
+        <h2 class="text-[32px] font-bold leading-[1.2] tracking-[-0.01em] text-on-background">
+          Professional Evolution
+        </h2>
+        <div class="w-20 h-1 bg-primary mx-auto mt-4 rounded-full" />
+      </div>
 
+      <div class="relative max-w-4xl mx-auto">
+        <!-- Vertical Line (centered on md+, left-aligned on mobile) -->
+        <div class="absolute left-4 md:left-1/2 md:-translate-x-1/2 w-px h-full bg-surface-container" />
+
+        <!-- Timeline Items -->
         <div
           v-for="(job, index) in experience"
           :key="index"
-          class="timeline-item"
+          class="relative flex flex-col md:flex-row md:justify-between items-start w-full mb-12 group last:mb-0"
         >
-          <div class="timeline-dot">
-            <UIcon
-              name="i-lucide-briefcase-business"
-              class="w-4 h-4"
-            />
+          <!-- Left content (desktop only) -->
+          <div class="hidden md:block w-[45%] text-right">
+            <span class="text-sm font-semibold text-primary bg-primary-container/20 px-3 py-1 rounded-full">
+              {{ job.period }}
+            </span>
+            <h4 class="text-2xl font-semibold leading-[1.3] mt-2 text-on-background">
+              {{ job.role }}
+            </h4>
+            <p class="text-base text-secondary">
+              {{ job.company }}
+            </p>
           </div>
 
-          <UCard class="portfolio-card timeline-content">
-            <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1 mb-3">
-              <div>
-                <h3 class="text-lg font-semibold text-highlighted">
+          <!-- Dot -->
+          <div class="absolute left-4 md:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-primary border-4 border-white shadow-md z-10 group-hover:scale-150 transition-transform top-1" />
+
+          <!-- Right content / full width on mobile -->
+          <div class="w-full md:w-[45%] pl-10 md:pl-0">
+            <div class="md:hidden mb-2">
+              <span class="text-sm font-semibold text-primary bg-primary-container/20 px-3 py-1 rounded-full">
+                {{ job.period }}
+              </span>
+            </div>
+            <div class="bg-white border border-slate-100 p-6 rounded-xl shadow-[0px_4px_20px_rgba(15,23,42,0.05)]">
+              <div class="md:hidden mb-3">
+                <h4 class="text-lg font-semibold text-on-background">
                   {{ job.role }}
-                </h3>
+                </h4>
                 <p class="text-primary font-medium">
                   {{ job.company }}
                 </p>
               </div>
-              <div class="text-sm text-muted sm:text-right shrink-0">
-                <p>{{ job.period }}</p>
-                <p>{{ job.location }}</p>
-              </div>
+              <ul class="space-y-1.5">
+                <li
+                  v-for="(item, i) in job.description"
+                  :key="i"
+                  class="flex items-start gap-2 text-sm text-secondary"
+                >
+                  <UIcon
+                    name="i-lucide-chevron-right"
+                    class="w-4 h-4 mt-0.5 text-primary shrink-0"
+                  />
+                  {{ item }}
+                </li>
+              </ul>
             </div>
-            <ul class="space-y-1.5">
-              <li
-                v-for="(item, i) in job.description"
-                :key="i"
-                class="flex items-start gap-2 text-sm text-muted"
-              >
-                <UIcon
-                  name="i-lucide-chevron-right"
-                  class="w-4 h-4 mt-0.5 text-primary shrink-0"
-                />
-                {{ item }}
-              </li>
-            </ul>
-          </UCard>
+          </div>
         </div>
       </div>
-    </UPageSection>
+    </section>
 
-    <!-- Projects -->
-    <UPageSection
+    <!-- Featured Projects -->
+    <section
       id="projects"
-      title="Projects"
-      description="A selection of projects I've built and contributed to."
+      class="max-w-[1200px] mx-auto px-6 py-[80px]"
     >
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
-        <component
-          :is="project.link ? 'a' : 'div'"
-          v-for="(project, index) in projects"
-          :key="index"
-          :href="project.link || undefined"
-          :target="project.link ? '_blank' : undefined"
-          :rel="project.link ? 'noopener noreferrer' : undefined"
-          class="block project-showcase"
-        >
-          <UCard class="portfolio-card h-full project-card">
-            <div class="project-media-wrap mb-4">
+      <div class="flex justify-between items-end mb-12">
+        <div>
+          <h2 class="text-[32px] font-bold leading-[1.2] tracking-[-0.01em] text-on-background">
+            Featured Projects
+          </h2>
+          <p class="text-base text-secondary">
+            A selection of work that defines my approach.
+          </p>
+        </div>
+      </div>
+
+      <!-- Bento: 1 large + 2 small stacked -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <!-- Featured project (large) -->
+        <div class="bg-white border border-slate-100 rounded-xl overflow-hidden group shadow-[0px_4px_20px_rgba(15,23,42,0.05)] hover:shadow-xl transition-shadow duration-300">
+          <a
+            :href="projects[0].link"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="block"
+          >
+            <div class="aspect-video bg-surface-container overflow-hidden">
+              <img
+                v-if="projects[0].image"
+                :src="projects[0].image"
+                :alt="projects[0].title"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              >
+            </div>
+            <div class="p-8">
+              <div class="flex gap-2 mb-4">
+                <span
+                  v-for="tag in projects[0].tags"
+                  :key="tag"
+                  class="bg-surface-container-low text-secondary px-3 py-1 rounded-full text-sm font-semibold"
+                >
+                  {{ tag }}
+                </span>
+              </div>
+              <h3 class="text-2xl font-semibold leading-[1.3] text-on-background mb-2">
+                {{ projects[0].title }}
+              </h3>
+              <p class="text-base text-secondary mb-6">
+                {{ projects[0].description }}
+              </p>
+              <span class="text-primary text-sm font-semibold flex items-center gap-2">
+                Case Study
+                <UIcon
+                  name="i-lucide-arrow-right"
+                  class="w-4 h-4"
+                />
+              </span>
+            </div>
+          </a>
+        </div>
+
+        <!-- Right Column Stack -->
+        <div class="flex flex-col gap-6">
+          <div
+            v-for="project in projects.slice(1, 3)"
+            :key="project.title"
+            class="bg-white border border-slate-100 rounded-xl overflow-hidden group shadow-[0px_4px_20px_rgba(15,23,42,0.05)] flex-1 flex flex-col md:flex-row"
+          >
+            <a
+              v-if="project.link"
+              :href="project.link"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="block w-full md:w-2/5 bg-surface-container overflow-hidden"
+            >
               <img
                 v-if="project.image"
                 :src="project.image"
-                :alt="`${project.title} thumbnail`"
-                class="project-media"
+                :alt="project.title"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               >
-              <div
-                v-else
-                class="project-media project-media-fallback"
-              >
+            </a>
+            <div class="p-6 md:w-3/5 flex flex-col justify-center">
+              <span class="bg-surface-container-low text-secondary px-3 py-1 rounded-full text-sm font-semibold w-fit mb-3">
+                {{ project.tags[0] }}
+              </span>
+              <h3 class="text-2xl font-semibold leading-[1.3] text-on-background mb-2">
+                {{ project.title }}
+              </h3>
+              <p class="text-base text-secondary mb-4">
+                {{ project.description }}
+              </p>
+              <span class="text-primary text-sm font-semibold flex items-center gap-2">
+                View Details
                 <UIcon
-                  name="i-lucide-image"
-                  class="w-6 h-6"
+                  name="i-lucide-arrow-right"
+                  class="w-4 h-4"
                 />
-                <p class="text-xs">
-                  No thumbnail for {{ project.title }} yet
-                </p>
-              </div>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
 
-              <div class="project-media-overlay">
-                <p class="text-sm font-medium text-white/90">
-                  {{ project.title }}
-                </p>
-                <span
-                  v-if="project.link"
-                  class="project-visit-chip"
+      <!-- Remaining projects bento grid -->
+      <div class="bento-grid">
+        <template
+          v-for="(project, index) in projects.slice(3)"
+          :key="project.title"
+        >
+          <!-- Every other card starting from 0 spans 8 cols, others span 4 -->
+          <article
+            :class="index % 3 === 0 ? 'col-span-12 md:col-span-8' : 'col-span-12 md:col-span-4'"
+            class="bg-surface-container-lowest rounded-xl border border-outline-variant/30 overflow-hidden shadow-[0px_4px_20px_rgba(15,23,42,0.05)] group transition-all duration-300 hover:border-primary/30"
+          >
+            <a
+              v-if="project.link"
+              :href="project.link"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="block"
+            >
+              <div
+                v-if="project.image"
+                class="h-48 relative overflow-hidden"
+              >
+                <img
+                  :src="project.image"
+                  :alt="project.title"
+                  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 >
-                  Visit Project
+              </div>
+              <div class="p-6">
+                <div class="flex gap-2 mb-3">
+                  <span
+                    v-for="tag in project.tags"
+                    :key="tag"
+                    class="bg-surface-container text-tertiary px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider"
+                  >
+                    {{ tag }}
+                  </span>
+                </div>
+                <h3 class="text-2xl font-semibold leading-[1.3] mb-2 group-hover:text-primary transition-colors text-on-background">
+                  {{ project.title }}
+                </h3>
+                <p class="text-secondary text-sm leading-relaxed mb-4">
+                  {{ project.description }}
+                </p>
+                <span class="inline-flex items-center gap-2 text-sm font-semibold text-primary">
+                  Details
                   <UIcon
                     name="i-lucide-arrow-up-right"
-                    class="w-3.5 h-3.5"
+                    class="w-4 h-4"
                   />
                 </span>
               </div>
-            </div>
-
-            <div class="flex items-start justify-between gap-3 mb-2">
-              <h3 class="text-lg font-semibold text-highlighted leading-tight">
+            </a>
+            <div
+              v-else
+              class="p-6"
+            >
+              <div class="flex gap-2 mb-3">
+                <span
+                  v-for="tag in project.tags"
+                  :key="tag"
+                  class="bg-surface-container text-tertiary px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider"
+                >
+                  {{ tag }}
+                </span>
+              </div>
+              <h3 class="text-2xl font-semibold leading-[1.3] mb-2 text-on-background">
                 {{ project.title }}
               </h3>
-              <UIcon
-                v-if="project.link"
-                name="i-lucide-external-link"
-                class="w-4 h-4 text-primary shrink-0 mt-1"
-              />
+              <p class="text-secondary text-sm leading-relaxed">
+                {{ project.description }}
+              </p>
             </div>
-
-            <p class="text-sm text-muted mb-4 line-clamp-4">
-              {{ project.description }}
-            </p>
-
-            <div class="flex flex-wrap gap-1.5 mt-auto">
-              <UBadge
-                v-for="(tag, i) in project.tags"
-                :key="i"
-                :label="tag"
-                color="primary"
-                variant="soft"
-                size="sm"
-                class="project-tag"
-              />
-            </div>
-          </UCard>
-        </component>
+          </article>
+        </template>
       </div>
-    </UPageSection>
+    </section>
+
+    <!-- Technical Arsenal -->
+    <section class="bg-white border-y border-slate-100 py-[80px]">
+      <div class="max-w-[1200px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="text-[32px] font-bold leading-[1.2] tracking-[-0.01em] text-on-background mb-6">
+            Technical Arsenal
+          </h2>
+          <p class="text-lg leading-[1.6] text-secondary mb-12">
+            I bridge the gap between design and engineering. My toolkit is built for speed, performance, and accessibility.
+          </p>
+          <div class="space-y-6">
+            <div
+              v-for="skill in technicalSkills"
+              :key="skill.name"
+              class="space-y-2"
+            >
+              <div class="flex justify-between text-sm font-semibold text-on-background">
+                <span>{{ skill.name }}</span>
+                <span>{{ skill.level }}%</span>
+              </div>
+              <div class="h-1 w-full bg-surface-container rounded-full">
+                <div
+                  class="h-full bg-primary rounded-full"
+                  :style="{ width: skill.level + '%' }"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Code Terminal -->
+        <div class="bg-on-background p-8 rounded-xl shadow-2xl relative overflow-hidden group">
+          <div class="flex items-center gap-2 mb-6">
+            <div class="w-3 h-3 rounded-full bg-red-500" />
+            <div class="w-3 h-3 rounded-full bg-amber-500" />
+            <div class="w-3 h-3 rounded-full bg-emerald-500" />
+          </div>
+          <pre class="text-white/80 text-sm leading-relaxed whitespace-pre-wrap font-mono"><span class="text-primary-fixed-dim">class</span> <span class="text-blue-400">Portfolio</span> {
+  <span class="text-primary-fixed-dim">constructor</span>() {
+    <span class="text-secondary-fixed-dim">this</span>.name = <span class="text-emerald-400">"Hannan Miah"</span>;
+    <span class="text-secondary-fixed-dim">this</span>.mission = <span class="text-emerald-400">"Build for Humans"</span>;
+  }
+
+  <span class="text-primary-fixed-dim">render</span>() {
+    <span class="text-primary-fixed-dim">return</span> <span class="text-secondary-fixed-dim">this</span>.design() + <span class="text-secondary-fixed-dim">this</span>.code();
+  }
+}
+
+<span class="text-slate-500">// Initialize high-performance career</span>
+<span class="text-primary-fixed-dim">const</span> work = <span class="text-primary-fixed-dim">new</span> Portfolio();
+work.ship();</pre>
+        </div>
+      </div>
+    </section>
 
     <!-- Education & Awards -->
-    <UPageSection
+    <section
       id="education"
-      title="Education & Awards"
-      description="Academic background and achievements."
+      class="max-w-[1200px] mx-auto px-6 py-[80px]"
     >
-      <div class="timeline-wrap max-w-4xl mx-auto">
-        <div class="timeline-line" />
+      <div class="text-center mb-12">
+        <h2 class="text-[32px] font-bold leading-[1.2] tracking-[-0.01em] text-on-background">
+          Education & Awards
+        </h2>
+        <p class="text-base text-secondary">
+          Academic background and achievements.
+        </p>
+      </div>
 
-        <div class="timeline-item">
-          <div class="timeline-dot">
-            <UIcon
-              name="i-lucide-graduation-cap"
-              class="w-4 h-4"
-            />
+      <div class="max-w-4xl mx-auto space-y-4">
+        <!-- Education -->
+        <div class="bg-white border border-slate-100 p-8 rounded-xl shadow-[0px_4px_20px_rgba(15,23,42,0.05)]">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="p-2 bg-primary-container/20 rounded-lg text-primary">
+              <UIcon
+                name="i-lucide-graduation-cap"
+                class="w-5 h-5"
+              />
+            </div>
+            <span class="text-sm font-semibold text-primary bg-primary-container/20 px-3 py-1 rounded-full">
+              2016 – 2023
+            </span>
           </div>
-
-          <UCard class="portfolio-card timeline-content">
-            <h3 class="text-lg font-semibold text-highlighted mb-1">
-              B.Sc. in Electrical and Electronic Engineering
-            </h3>
-            <p class="text-primary font-medium mb-1">
-              Bangabandhu Sheikh Mujibur Rahman Science and Technology University
-            </p>
-            <p class="text-sm text-muted">
-              Gopalganj &middot; 2016–2023
-            </p>
-          </UCard>
+          <h3 class="text-2xl font-semibold leading-[1.3] text-on-background mb-1">
+            B.Sc. in Electrical and Electronic Engineering
+          </h3>
+          <p class="text-primary font-medium mb-1">
+            Bangabandhu Sheikh Mujibur Rahman Science and Technology University
+          </p>
+          <p class="text-sm text-secondary">
+            Gopalganj
+          </p>
         </div>
 
-        <div class="timeline-item">
-          <div class="timeline-dot">
-            <UIcon
-              name="i-lucide-award"
-              class="w-4 h-4"
-            />
-          </div>
-
-          <UCard class="portfolio-card timeline-content">
-            <h3 class="text-lg font-semibold text-highlighted mb-4">
+        <!-- Awards -->
+        <div class="bg-white border border-slate-100 p-8 rounded-xl shadow-[0px_4px_20px_rgba(15,23,42,0.05)]">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="p-2 bg-primary-container/20 rounded-lg text-primary">
+              <UIcon
+                name="i-lucide-award"
+                class="w-5 h-5"
+              />
+            </div>
+            <h3 class="text-2xl font-semibold leading-[1.3] text-on-background">
               Awards & Certifications
             </h3>
-            <ul class="space-y-2">
-              <li
-                v-for="(award, index) in awards"
-                :key="index"
-                class="flex items-start gap-2 text-sm text-muted"
-              >
-                <UIcon
-                  name="i-lucide-chevron-right"
-                  class="w-4 h-4 mt-0.5 text-primary shrink-0"
-                />
-                {{ award }}
-              </li>
-            </ul>
-          </UCard>
+          </div>
+          <ul class="space-y-3">
+            <li
+              v-for="(award, index) in awards"
+              :key="index"
+              class="flex items-start gap-2 text-base text-secondary"
+            >
+              <UIcon
+                name="i-lucide-chevron-right"
+                class="w-4 h-4 mt-1 text-primary shrink-0"
+              />
+              {{ award }}
+            </li>
+          </ul>
         </div>
       </div>
-    </UPageSection>
+    </section>
 
-    <!-- Contact -->
-    <UPageSection>
-      <UPageCTA
-        id="contact"
-        title="Get In Touch"
-        description="Interested in working together? Feel free to reach out."
-        variant="subtle"
-        class="portfolio-card"
-        :links="[{
-          label: 'hannanhridoy@gmail.com',
-          to: 'mailto:hannanhridoy@gmail.com',
-          icon: 'i-lucide-mail',
-          color: 'neutral'
-        }, {
-          label: '+880 1787 378887',
-          to: 'tel:+8801787378887',
-          icon: 'i-lucide-phone',
-          color: 'neutral',
-          variant: 'outline'
-        }]"
-      >
-        <div class="flex items-center gap-4 mt-4">
-          <UButton
-            to="/hannan_cv_4_apr_2026_latest.pdf"
-            target="_blank"
-            icon="i-lucide-download"
-            label="Download CV"
-            color="neutral"
-            variant="ghost"
-            download
-          />
-          <UButton
-            to="https://github.com/hannanmiah"
-            target="_blank"
-            icon="i-simple-icons-github"
-            label="GitHub"
-            color="neutral"
-            variant="ghost"
-          />
-          <UButton
-            to="https://linkedin.com/in/hannanmiah"
-            target="_blank"
-            icon="i-simple-icons-linkedin"
-            label="LinkedIn"
-            color="neutral"
-            variant="ghost"
-          />
-          <div class="flex items-center gap-1.5 text-sm text-muted">
-            <UIcon
-              name="i-lucide-map-pin"
-              class="w-4 h-4"
-            />
-            Uttara, Dhaka, Bangladesh
+    <!-- CTA Section -->
+    <section
+      id="contact"
+      class="max-w-[1200px] mx-auto px-6 py-[80px] text-center"
+    >
+      <div class="bg-primary p-12 md:p-[80px] rounded-3xl relative overflow-hidden">
+        <div
+          class="absolute inset-0 opacity-10"
+          style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 24px 24px;"
+        />
+        <div class="relative z-10 max-w-2xl mx-auto">
+          <h2 class="text-[48px] font-extrabold leading-[1.1] tracking-[-0.02em] text-on-primary mb-6">
+            Ready to start your next project?
+          </h2>
+          <p class="text-lg leading-[1.6] text-primary-fixed mb-12">
+            Currently accepting select freelance inquiries and fullstack opportunities. Let's build something great together.
+          </p>
+          <div class="flex flex-wrap justify-center gap-4">
+            <a
+              href="mailto:hannanhridoy@gmail.com"
+              class="bg-white text-primary px-8 py-4 rounded-lg text-sm font-semibold flex items-center gap-2 hover:bg-surface-container-lowest transition-colors"
+            >
+              Send an Email
+              <UIcon
+                name="i-lucide-mail"
+                class="w-5 h-5"
+              />
+            </a>
+            <a
+              href="/hannan_cv_4_apr_2026_latest.pdf"
+              target="_blank"
+              download
+              class="bg-on-primary-fixed-variant text-on-primary border border-white/20 px-8 py-4 rounded-lg text-sm font-semibold flex items-center gap-2 hover:bg-primary-fixed transition-colors"
+            >
+              Download CV
+              <UIcon
+                name="i-lucide-download"
+                class="w-5 h-5"
+              />
+            </a>
+          </div>
+          <div class="flex flex-wrap justify-center gap-6 mt-8">
+            <a
+              href="https://github.com/hannanmiah"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-white/70 hover:text-white text-sm transition-colors"
+            >
+              GitHub
+            </a>
+            <a
+              href="https://linkedin.com/in/hannanmiah"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-white/70 hover:text-white text-sm transition-colors"
+            >
+              LinkedIn
+            </a>
+            <span class="flex items-center gap-1.5 text-sm text-white/50">
+              <UIcon
+                name="i-lucide-map-pin"
+                class="w-4 h-4"
+              />
+              Uttara, Dhaka, Bangladesh
+            </span>
           </div>
         </div>
-      </UPageCTA>
-    </UPageSection>
+      </div>
+    </section>
   </div>
 </template>
