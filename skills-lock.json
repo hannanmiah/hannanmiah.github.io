@@ -10,6 +10,12 @@
       "source": "nuxt/ui",
       "sourceType": "github",
       "computedHash": "393941c018456a32ca6a86c71e9400d43d58d3418cfb4b53e3f5b57d862f65b1"
+    },
+    "shaders": {
+      "source": "shader-effects-inc/shaders",
+      "sourceType": "github",
+      "skillPath": "skills/shaders/SKILL.md",
+      "computedHash": "b5da5d8823c5bb560dd0b4adff4abd29073edb26e196afa1447b4e54d3bc68bb"
     }
   }
 }

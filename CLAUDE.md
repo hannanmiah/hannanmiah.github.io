@@ -59,11 +59,14 @@ Results-driven Fullstack Developer with over 5 years of experience specializing 
 
 ### Experience
 
-1. **Backend Developer** — Amarsolution (02/2025 – 02/2026, Uttara, Dhaka)
-2. **Senior Laravel Developer** — Curlware Digital Agency (04/2024 – 01/2025, Shyamloy, Dhaka)
-3. **Laravel Developer** — Boost Education Service (06/2022 – 12/2022, Remote)
+1. **FullStack Laravel Developer** — Cube Limited (01 Feb 2026 – Present)
+2. **Backend Developer** — Amarsolution (02/2025 – 02/2026, Uttara, Dhaka)
+3. **Senior Laravel Developer** — Curlware Digital Agency (04/2024 – 01/2025, Shyamloy, Dhaka)
+4. **Laravel Developer** — Boost Education Service (06/2022 – 12/2022, Remote)
 
 ### Key Projects
+
+- **StudyHuge** — Social and education platform connecting students and educators through feeds, communities, structured courses, multimedia lessons, progress tracking, and online exams. Laravel, Livewire. https://studyhuge.com
 
 - **Dazzle.com.bd** — E-commerce platform. Backend Team Lead. Laravel API, Docker.
 - **AmarSolution ERP** — ERP solution. Laravel API with microservices architecture.

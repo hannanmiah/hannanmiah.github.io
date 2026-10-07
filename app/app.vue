@@ -1,4 +1,7 @@
 <script setup>
+const menuOpen = ref(false)
+const links = ['About', 'Projects', 'Expertise', 'Experience', 'Education', 'Contact']
+
 useHead({
   meta: [
     { name: 'viewport', content: 'width=device-width, initial-scale=1' }
@@ -26,91 +29,77 @@ useSeoMeta({
 </script>
 
 <template>
-  <div class="min-h-screen bg-background text-on-background font-sans antialiased">
-    <!-- TopAppBar -->
-    <header class="bg-white/80 backdrop-blur-md fixed top-0 w-full z-50 border-b border-slate-100 shadow-[0px_4px_20px_rgba(15,23,42,0.05)]">
-      <nav class="max-w-[1200px] mx-auto flex justify-between items-center px-6 py-4">
+  <div class="portfolio">
+    <a
+      href="#main"
+      class="skip-link"
+    >Skip to content</a>
+    <header class="site-header">
+      <nav
+        class="section-shell nav-bar"
+        aria-label="Main navigation"
+      >
         <NuxtLink
           to="/"
-          class="flex items-center gap-2"
-        >
-          <UIcon
-            name="i-lucide-terminal"
-            class="text-green-600 w-6 h-6"
-          />
-          <span class="text-xl font-bold tracking-tighter text-slate-900">Hannan Miah</span>
-        </NuxtLink>
-
-        <div class="hidden md:flex items-center gap-8">
+          class="wordmark"
+          aria-label="Hannan Miah home"
+        >hm<span>✳</span></NuxtLink><div class="desktop-nav">
           <a
-            href="#about"
-            class="text-slate-600 hover:text-green-600 transition-colors text-sm font-semibold"
-          >About</a>
-          <a
-            href="#expertise"
-            class="text-slate-600 hover:text-green-600 transition-colors text-sm font-semibold"
-          >Expertise</a>
-          <a
-            href="#experience"
-            class="text-slate-600 hover:text-green-600 transition-colors text-sm font-semibold"
-          >Experience</a>
-          <a
-            href="#projects"
-            class="text-slate-600 hover:text-green-600 transition-colors text-sm font-semibold"
-          >Projects</a>
-          <a
-            href="#education"
-            class="text-slate-600 hover:text-green-600 transition-colors text-sm font-semibold"
-          >Education</a>
+            v-for="link in links.slice(0, 4)"
+            :key="link"
+            :href="'#' + link.toLowerCase()"
+          >{{ link }}</a>
+        </div><div class="nav-actions">
           <a
             href="#contact"
-            class="text-slate-600 hover:text-green-600 transition-colors text-sm font-semibold"
-          >Contact</a>
+            class="nav-contact"
+          >Let's talk <UIcon name="i-lucide-arrow-up-right" /></a><button
+            class="menu-toggle"
+            aria-controls="mobile-nav"
+            :aria-expanded="menuOpen"
+            :aria-label="menuOpen ? 'Close menu' : 'Open menu'"
+            @click="menuOpen = !menuOpen"
+          >
+            <UIcon :name="menuOpen ? 'i-lucide-x' : 'i-lucide-menu'" />
+          </button>
         </div>
-
+      </nav><nav
+        v-if="menuOpen"
+        id="mobile-nav"
+        class="mobile-nav section-shell"
+        aria-label="Mobile navigation"
+      >
         <a
-          href="#contact"
-          class="bg-primary-container text-on-primary-container px-6 py-2 rounded-lg text-sm font-semibold hover:opacity-90 active:scale-95 transition-all"
-        >
-          Hire Me
-        </a>
+          v-for="link in links"
+          :key="link"
+          :href="'#' + link.toLowerCase()"
+          @click="menuOpen = false"
+        >{{ link }}</a>
       </nav>
     </header>
-
-    <!-- Main Content -->
-    <main class="pt-[80px]">
+    <main id="main">
       <NuxtPage />
     </main>
-
-    <!-- Footer -->
-    <footer class="bg-slate-50 w-full mt-20 border-t border-slate-200">
-      <div class="max-w-[1200px] mx-auto py-12 px-6 flex flex-col md:flex-row justify-between items-center gap-6">
-        <div class="flex items-center gap-4">
-          <span class="font-bold text-slate-900 text-lg">Hannan Miah</span>
-          <span class="text-slate-400">/</span>
-          <p class="text-sm text-slate-500">
-            &copy; {{ new Date().getFullYear() }} Portfolio. Designed with precision.
-          </p>
-        </div>
-        <div class="flex gap-8">
-          <a
-            href="https://linkedin.com/in/hannanmiah"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="text-slate-500 hover:text-green-500 transition-colors text-sm"
-          >LinkedIn</a>
-          <a
-            href="https://github.com/hannanmiah"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="text-slate-500 hover:text-green-500 transition-colors text-sm"
-          >GitHub</a>
-          <a
-            href="mailto:hannanhridoy@gmail.com"
-            class="text-slate-500 hover:text-green-500 transition-colors text-sm"
-          >Email</a>
-        </div>
-      </div>
+    <footer class="section-shell site-footer">
+      <div>
+        <a
+          href="#main"
+          class="wordmark"
+        >hm<span>✳</span></a><p>Thoughtfully built, from Dhaka.</p>
+      </div><div class="footer-links">
+        <a
+          href="https://github.com/hannanmiah"
+          target="_blank"
+          rel="noopener noreferrer"
+        >GitHub ↗</a><a
+          href="https://linkedin.com/in/hannanmiah"
+          target="_blank"
+          rel="noopener noreferrer"
+        >LinkedIn ↗</a><a
+          href="/hannan_cv_4_apr_2026_latest.pdf"
+          download
+        >Résumé ↓</a>
+      </div><span class="copyright">© {{ new Date().getFullYear() }} Hannan Miah</span>
     </footer>
   </div>
 </template>
