@@ -22,7 +22,7 @@ function onReady() {
   >
     <MeshGradient
       v-if="variant === 'mesh'"
-      :stops="[{ color: '#111b12', position: 0 }, { color: '#4e641b', position: 0.35 }, { color: '#b5d467', position: 0.65 }, { color: '#dce9ad', position: 1 }]"
+      :stops="[{ color: '#e6edf7', position: 0 }, { color: '#bccfe8', position: 0.35 }, { color: '#e3ebf8', position: 0.65 }, { color: '#f4f7fc', position: 1 }]"
       :speed="0.35"
       :swirl="0.65"
       :smoothness="1.8"
@@ -39,8 +39,8 @@ function onReady() {
     />
     <Swirl
       v-else
-      color-a="#141c12"
-      color-b="#64823a"
+      color-a="#102d59"
+      color-b="#234f89"
       :stops="null"
       :speed="0.25"
       :detail="0.6"
