@@ -1,9 +1,11 @@
 <script setup>
+const showAllProjects = ref(false)
+
 const stats = [
   { value: '5+', label: 'Years Exp.', icon: 'i-lucide-briefcase-business' },
   { value: '10+', label: 'Projects', icon: 'i-lucide-folder-open' },
-  { value: '4', label: 'Industry Awards', icon: 'i-lucide-award' },
-  { value: '100%', label: 'Client Joy', icon: 'i-lucide-heart-handshake' }
+  { value: '1', label: 'National Award', icon: 'i-lucide-award' },
+  { value: '3', label: 'Certificates', icon: 'i-lucide-badge-check' }
 ]
 
 const skills = [
@@ -30,22 +32,23 @@ const skills = [
 ]
 
 const technicalSkills = [
-  { name: 'Laravel / PHP', level: 95 },
-  { name: 'Vue.js / Nuxt.js', level: 90 },
-  { name: 'Tailwind CSS', level: 92 },
-  { name: 'Docker / DevOps', level: 80 },
-  { name: 'MySQL / PostgreSQL', level: 88 },
-  { name: 'Go', level: 60 }
+  { name: 'Laravel / PHP' },
+  { name: 'Vue.js / Nuxt.js' },
+  { name: 'Tailwind CSS' },
+  { name: 'Docker / DevOps' },
+  { name: 'MySQL / PostgreSQL' },
+  { name: 'Go' }
 ]
 
 const experience = [
   {
-    role: 'FullStack Laravel Developer',
+    role: 'Fullstack Developer',
     company: 'Cube Limited',
     period: '01 Feb 2026 – Present',
-    location: '',
+    location: 'Shomvuganj, Mymensingh',
     description: [
-      'Fullstack web application development using Laravel'
+      'Serving as a Full-Stack Laravel Developer and Product Lead',
+      'Architecting and delivering web applications across school management, EdTech, and news portal domains'
     ]
   },
   {
@@ -54,9 +57,8 @@ const experience = [
     period: '02/2025 – 02/2026',
     location: 'Uttara, Dhaka',
     description: [
-      'Architecting and maintaining the AmarSolution ERP, a leading enterprise resource planning tool in Bangladesh',
-      'Developing robust Laravel-based microservices to handle high-concurrency data processing',
-      'Collaborating with stakeholders to translate complex business requirements into scalable technical specifications'
+      'Worked as a Laravel backend developer on various projects',
+      'Contributed significantly to AmarSolution ERP, including its Laravel API backend and microservices architecture'
     ]
   },
   {
@@ -65,8 +67,7 @@ const experience = [
     period: '04/2024 – 01/2025',
     location: 'Shyamloy, Dhaka',
     description: [
-      'Led the backend engineering team, improving sprint delivery speed by mentoring junior developers and implementing code review standards',
-      'Managed end-to-end lifecycles for multiple client projects, ensuring on-time delivery and high-quality deployments'
+      'Led the backend team and managed multiple projects as Project Manager'
     ]
   },
   {
@@ -75,26 +76,33 @@ const experience = [
     period: '06/2022 – 12/2022',
     location: 'Remote',
     description: [
-      'Spearheaded the development of a custom CRM for student consultancy, integrating Laravel WebSockets for real-time notifications',
-      'Managed cloud infrastructure and automated deployment processes to reduce downtime'
+      'Led a team to develop and manage a CRM system for student consultancy, built with Laravel WebSocket',
+      'Managed cloud deployments and contributed to parallel projects'
     ]
   }
 ]
 
 const projects = [
   {
+    title: 'Study Huge',
+    description: 'Social and education platform connecting students and teachers through communities, courses, and online exams. Team Lead and Product Manager: developed the Laravel API backend, deployed with Docker, and coordinated frontend and mobile teams. Built with Livewire, Alpine.js, Laravel, Sanctum, and Reverb.',
+    tags: ['Laravel', 'Livewire', 'Alpine.js', 'Sanctum', 'Reverb'],
+    link: 'https://studyhuge.com',
+    image: '/projects/studyhuge.jpg'
+  },
+  {
     title: 'Dazzle.com.bd',
-    description: 'Popular e-commerce platform in Bangladesh. Backend Team Lead and Project Manager. Next.js frontend, Laravel API backend, Reverb WebSocket, deployed on DigitalOcean with Docker.',
-    tags: ['Laravel', 'Next.js', 'Docker', 'E-commerce'],
+    description: 'E-commerce platform in Bangladesh. Backend Team Lead and Project Manager: developed the Laravel API backend, deployed with Docker, and coordinated frontend and mobile teams.',
+    tags: ['Laravel', 'Docker', 'E-commerce'],
     link: 'https://dazzle.com.bd',
     image: '/projects/dazzle.png'
   },
   {
-    title: 'StudyHuge',
-    description: 'Social learning platform connecting students and educators through feeds, communities, and shared content. Combines structured courses, multimedia lessons, progress tracking, and online exams with access to scholarships and career opportunities. Built with Laravel and Livewire.',
-    tags: ['Laravel', 'Livewire', 'Social Learning', 'Education'],
-    link: 'https://studyhuge.com',
-    image: '/projects/studyhuge.jpg'
+    title: 'Crime Talash 24',
+    description: 'Bangladeshi news portal. Team Lead and System Architect, built with Laravel, Livewire, and Alpine.js.',
+    tags: ['Laravel', 'Livewire', 'Alpine.js', 'News Portal'],
+    link: 'https://crimetalash24.com',
+    image: '/projects/crime-talash-24.jpg'
   },
   {
     title: 'AmarSolution ERP',
@@ -119,21 +127,21 @@ const projects = [
   },
   {
     title: 'The Lead Library',
-    description: 'CRM platform for student consultancy. Real-time features with WebSocket, built on Laravel and Vue.js.',
+    description: 'CRM platform for student consultancy, built with Laravel, Vue.js, Tailwind CSS, MySQL, and Laravel WebSocket.',
     tags: ['Laravel', 'Vue.js', 'MySQL'],
     link: 'https://bhe.theleadlibrary.com',
     image: '/projects/lead_library.png'
   },
   {
     title: 'YourHouseTV',
-    description: 'Streaming platform powered by Laravel, Reverb, and Inertia.js for real-time video delivery.',
+    description: 'Streaming platform built with Laravel, Reverb (WebSockets), and Inertia.js (Vue.js).',
     tags: ['Laravel', 'Reverb', 'Inertia'],
     link: 'https://yourhousetv.com',
     image: '/projects/yourhousetv.png'
   },
   {
     title: 'Techdiary Blog',
-    description: 'Open-source tech blog platform. Built with Laravel backend and Nuxt.js for the frontend.',
+    description: 'Open-source tech blogging platform. Contributed using Laravel and Nuxt.js.',
     tags: ['Laravel', 'Nuxt.js', 'Open Source'],
     link: 'https://techdiary.dev',
     image: '/projects/techdiary.png'
@@ -176,69 +184,73 @@ const aboutHighlights = [
   <div>
     <section class="hero section-shell">
       <div class="hero-copy">
-        <span class="eyebrow"><span class="status-dot" /> Available for new opportunities</span>
-        <h1>Thoughtful code.<br>Extraordinary<br><em>possibilities.</em></h1>
+        <span class="availability"><span class="status-dot" /> Open to opportunities</span>
+        <h1>Software that<br>works for people.</h1>
         <p class="hero-description">
-          I'm Hannan, a fullstack developer turning complex ideas into simple, powerful digital experiences.
+          I'm Hannan Miah, a fullstack developer building the web applications behind better learning, smoother businesses, and connected communities.
         </p>
         <div class="button-row">
           <a
             href="#projects"
             class="button button-primary"
-          >Explore my work <UIcon name="i-lucide-arrow-up-right" /></a>
+          >View selected work <UIcon name="i-lucide-arrow-down-right" /></a>
           <a
-            href="/hannan_cv_4_apr_2026_latest.pdf"
+            href="/hannan_cv_16_10_2026.pdf"
             download
             class="button button-secondary"
           >Download CV <UIcon name="i-lucide-download" /></a>
         </div>
-        <div class="hero-note">
-          <span>Based in Dhaka, Bangladesh</span><span>Building for the world ↗</span>
+        <div class="hero-current">
+          <span class="current-icon"><UIcon name="i-lucide-briefcase-business" /></span><div><strong>Fullstack Developer · Cube Limited</strong><span>Laravel development & product leadership</span></div>
         </div>
       </div>
-      <div class="hero-art">
-        <PortfolioEffect variant="mesh" />
-        <div class="art-grid" />
-        <span class="art-coordinate">23.8103° N / 90.4125° E</span>
-        <div class="orbit orbit-one" /><div class="orbit orbit-two" />
-        <div class="art-center">
-          <span class="art-symbol">✳</span><span>IDEAS INTO IMPACT</span>
+      <div class="hero-profile">
+        <div class="profile-atmosphere">
+          <PortfolioEffect variant="mesh" />
         </div>
-        <div class="art-caption">
-          <span>Creative thinking.<br>Engineered to last.</span><UIcon name="i-lucide-arrow-down-right" />
+        <img
+          src="/hannan-portrait-1024.jpg"
+          srcset="/hannan-portrait-512.jpg 512w, /hannan-portrait-1024.jpg 1024w"
+          sizes="(max-width: 640px) calc(100vw - 64px), (max-width: 900px) 43vw, 440px"
+          alt="Hannan Miah"
+          width="1024"
+          height="1024"
+          fetchpriority="high"
+        >
+        <div class="profile-caption">
+          <div><strong>Hannan Miah</strong><span>Fullstack Software Developer</span></div><a
+            href="https://github.com/hannanmiah"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Hannan Miah on GitHub"
+          ><UIcon name="i-simple-icons-github" /></a>
         </div>
-        <div class="floating-label">
-          <UIcon name="i-lucide-code-xml" /> Laravel × Vue × Nuxt
-        </div>
+        <span class="profile-location"><UIcon name="i-lucide-map-pin" /> Dhaka, Bangladesh</span>
       </div>
     </section>
 
-    <div class="stats-strip section-shell">
-      <div
-        v-for="stat in stats"
-        :key="stat.label"
-        class="stat"
-      >
-        <strong>{{ stat.value }}</strong><span>{{ stat.label }}</span>
-      </div>
+    <div class="technology-strip section-shell">
+      <span>From interface to infrastructure</span><div><span>Laravel</span><span>Livewire</span><span>Vue.js</span><span>Nuxt.js</span><span>Docker</span></div>
     </div>
 
     <section
       id="about"
       class="section-shell section-space about-layout"
     >
-      <div class="portrait">
-        <img
-          src="/photo.jpg"
-          alt="Hannan Miah"
-          loading="lazy"
-          width="640"
-          height="640"
-        ><span class="portrait-label">THE HUMAN BEHIND THE CODE</span>
-      </div>
+      <aside class="about-summary">
+        <span class="section-kicker">A practical approach</span><h3>Built around the<br> whole picture.</h3><p>I connect product thinking with the details of implementation, from the first conversation to deployment.</p><div class="stats-strip">
+          <div
+            v-for="stat in stats"
+            :key="stat.label"
+            class="stat"
+          >
+            <strong>{{ stat.value }}</strong><span>{{ stat.label }}</span>
+          </div>
+        </div>
+      </aside>
       <div>
-        <span class="eyebrow">01 / A little about me</span>
-        <h2>Curiosity drives me.<br><em>Craft defines me.</em></h2>
+        <span class="eyebrow">About me</span>
+        <h2>Curious by nature.<br>Practical by design.</h2>
         <p class="body-copy">
           I bridge the gap between complex engineering and human-centric design. With over five years working across the TALL and VILT stacks, I build ERP systems, e-commerce platforms, and microservices that stand up to real-world demands.
         </p>
@@ -264,17 +276,20 @@ const aboutHighlights = [
       class="section-shell section-space"
     >
       <div class="section-heading">
-        <div><span class="eyebrow">02 / Selected work</span><h2>Built with purpose.<br><em>Made for people.</em></h2></div><p>A selection of platforms, products,<br>and problems I've helped solve.</p>
+        <div><span class="eyebrow">Selected work</span><h2>Real products.<br>Real responsibilities.</h2></div><p>From education platforms to business tools,<br>here are some of the systems I've worked on.</p>
       </div>
-      <div class="project-grid">
+      <div
+        id="portfolio-projects"
+        class="project-grid"
+      >
         <article
-          v-for="(project, index) in projects"
+          v-for="(project, index) in (showAllProjects ? projects : projects.slice(0, 4))"
           :key="project.title"
           class="project-card"
-          :class="{ 'project-featured': index === 0 }"
+          :class="{ 'project-featured': index === 0 || index === 3 }"
         >
           <a
-            v-if="project.link"
+            v-if="project.link && project.image"
             :href="project.link"
             target="_blank"
             rel="noopener noreferrer"
@@ -291,11 +306,11 @@ const aboutHighlights = [
             v-else
             class="project-placeholder"
           >
-            <UIcon name="i-lucide-code-xml" /><span>CRAFTED WITH CARE</span>
+            <UIcon :name="project.title === 'Crime Talash 24' ? 'i-lucide-newspaper' : 'i-lucide-code-xml'" /><span>{{ project.title }}</span>
           </div>
           <div class="project-info">
             <div class="project-meta">
-              <span>{{ String(index + 1).padStart(2, '0') }} / {{ project.tags[0] }}</span><span>DEVELOPMENT</span>
+              <span>{{ project.tags[0] }} development</span><span>{{ project.link ? 'Live project' : 'Project work' }}</span>
             </div><h3>
               <a
                 v-if="project.link"
@@ -315,6 +330,21 @@ const aboutHighlights = [
           </div>
         </article>
       </div>
+      <div class="project-actions">
+        <button
+          class="button button-secondary"
+          :aria-expanded="showAllProjects"
+          aria-controls="portfolio-projects"
+          @click="showAllProjects = !showAllProjects"
+        >
+          {{ showAllProjects ? 'Show selected work' : `Explore all ${projects.length} projects` }} <UIcon :name="showAllProjects ? 'i-lucide-minus' : 'i-lucide-plus'" />
+        </button><a
+          href="https://github.com/hannanmiah"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-link"
+        >More on GitHub <UIcon name="i-lucide-arrow-up-right" /></a>
+      </div>
     </section>
 
     <section
@@ -322,8 +352,8 @@ const aboutHighlights = [
       class="section-shell section-space"
     >
       <div class="expertise-panel">
-        <PortfolioEffect variant="aurora" /><div class="panel-content">
-          <span class="eyebrow">03 / My toolkit</span><h2>From the first pixel<br>to the <em>last endpoint.</em></h2><div class="skills-grid">
+        <div class="panel-content">
+          <span class="eyebrow">Technical expertise</span><h2>One connected stack.<br>From frontend to deployment.</h2><div class="skills-grid">
             <div
               v-for="skill in skills"
               :key="skill.title"
@@ -340,7 +370,7 @@ const aboutHighlights = [
         <span
           v-for="skill in technicalSkills"
           :key="skill.name"
-        >{{ skill.name }} <strong>{{ skill.level }}%</strong></span>
+        >{{ skill.name }}</span>
       </div>
     </section>
 
@@ -349,15 +379,15 @@ const aboutHighlights = [
       class="section-shell section-space"
     >
       <div class="section-heading">
-        <div><span class="eyebrow">04 / The journey</span><h2>Experience that<br><em>makes a difference.</em></h2></div><p>Good work comes from great teams.<br>Here's where I've made my mark.</p>
+        <div><span class="eyebrow">Experience</span><h2>Teams I've helped.<br>Systems I've shipped.</h2></div><p>Good work comes from great teams.<br>Here's where I've made my mark.</p>
       </div>
       <article
-        v-for="(job, index) in experience"
+        v-for="job in experience"
         :key="job.company"
         class="experience-row"
       >
         <div class="experience-date">
-          <span class="eyebrow">0{{ index + 1 }}</span><span>{{ job.period }}</span><span>{{ job.location }}</span>
+          <span>{{ job.period }}</span><span>{{ job.location }}</span>
         </div><div>
           <h3>{{ job.role }}</h3><span class="company">{{ job.company }}</span><ul>
             <li
@@ -379,8 +409,8 @@ const aboutHighlights = [
       class="section-shell section-space education-layout"
     >
       <div>
-        <span class="eyebrow">05 / Foundations</span><h2>Never stop<br><em>being curious.</em></h2><div class="education-card">
-          <UIcon name="i-lucide-graduation-cap" /><span class="eyebrow">2016 — 2023</span><h3>B.Sc. in Electrical and Electronic Engineering</h3><p>Bangabandhu Sheikh Mujibur Rahman Science and Technology University</p><span>Gopalganj, Bangladesh</span>
+        <span class="eyebrow">Education & recognition</span><h2>A foundation<br>for lifelong learning.</h2><div class="education-card">
+          <UIcon name="i-lucide-graduation-cap" /><span class="eyebrow">Jan 2016 — Dec 2023</span><h3>B.Sc. in Electrical and Electronic Engineering</h3><p>Bangabandhu Sheikh Mujibur Rahman Science and Technology University</p><span>Gopalganj, Bangladesh</span>
         </div>
       </div>
       <div class="awards-list">
@@ -399,17 +429,24 @@ const aboutHighlights = [
     >
       <div class="contact-panel">
         <PortfolioEffect variant="swirl" /><div class="panel-content">
-          <span class="eyebrow"><span class="status-dot" /> Open to great collaborations</span><h2>Have something<br><em>in mind?</em></h2><p>Let's turn your next big idea into something real.</p><a
+          <span class="eyebrow"><span class="status-dot" /> Open to collaboration</span><h2>Let's build your<br>next chapter.</h2><p>Have a product to build or a team to grow? I would love to hear about it.</p><a
             href="mailto:hannanhridoy@gmail.com"
             class="button button-primary"
           >Let's talk <UIcon name="i-lucide-arrow-up-right" /></a><a
             class="contact-email"
             href="mailto:hannanhridoy@gmail.com"
           >hannanhridoy@gmail.com</a>
-        </div><span
-          class="contact-star"
-          aria-hidden="true"
-        >✳</span>
+        </div><div class="contact-links">
+          <a
+            href="https://github.com/hannanmiah"
+            target="_blank"
+            rel="noopener noreferrer"
+          >GitHub <UIcon name="i-lucide-arrow-up-right" /></a><a
+            href="https://linkedin.com/in/hannanmiah"
+            target="_blank"
+            rel="noopener noreferrer"
+          >LinkedIn <UIcon name="i-lucide-arrow-up-right" /></a>
+        </div>
       </div>
     </section>
   </div>

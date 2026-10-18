@@ -15,15 +15,15 @@ useHead({
 })
 
 const title = 'Hannan Miah — Fullstack Software Developer'
-const description = 'Results-driven Fullstack Developer with over 5 years of experience specializing in the TALL and VILT stacks. Proven track record in architecting scalable ERP systems, high-traffic e-commerce platforms, and microservices.'
+const description = 'Full-Stack Laravel Developer with over 5 years of experience building web applications with Laravel, Vue.js, Nuxt.js, Tailwind CSS, and MySQL. Skilled in Dockerized environments and delivering clean, scalable, user-centric solutions.'
 
 useSeoMeta({
   title,
   description,
   ogTitle: title,
   ogDescription: description,
-  ogImage: 'https://hannanmiah.github.io/photo.jpg',
-  twitterImage: 'https://hannanmiah.github.io/photo.jpg',
+  ogImage: 'https://hannanmiah.github.io/hannan-portrait-1024.jpg',
+  twitterImage: 'https://hannanmiah.github.io/hannan-portrait-1024.jpg',
   twitterCard: 'summary_large_image'
 })
 </script>
@@ -43,7 +43,7 @@ useSeoMeta({
           to="/"
           class="wordmark"
           aria-label="Hannan Miah home"
-        >hm<span>✳</span></NuxtLink><div class="desktop-nav">
+        >hannan<span>.dev</span></NuxtLink><div class="desktop-nav">
           <a
             v-for="link in links.slice(0, 4)"
             :key="link"
@@ -53,7 +53,7 @@ useSeoMeta({
           <a
             href="#contact"
             class="nav-contact"
-          >Let's talk <UIcon name="i-lucide-arrow-up-right" /></a><button
+          >Contact me <UIcon name="i-lucide-arrow-up-right" /></a><button
             class="menu-toggle"
             aria-controls="mobile-nav"
             :aria-expanded="menuOpen"
@@ -85,7 +85,7 @@ useSeoMeta({
         <a
           href="#main"
           class="wordmark"
-        >hm<span>✳</span></a><p>Thoughtfully built, from Dhaka.</p>
+        >hannan<span>.dev</span></a><p>Fullstack development. Product thinking.</p>
       </div><div class="footer-links">
         <a
           href="https://github.com/hannanmiah"
@@ -96,7 +96,7 @@ useSeoMeta({
           target="_blank"
           rel="noopener noreferrer"
         >LinkedIn ↗</a><a
-          href="/hannan_cv_4_apr_2026_latest.pdf"
+          href="/hannan_cv_16_10_2026.pdf"
           download
         >Résumé ↓</a>
       </div><span class="copyright">© {{ new Date().getFullYear() }} Hannan Miah</span>

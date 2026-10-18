@@ -59,14 +59,16 @@ Results-driven Fullstack Developer with over 5 years of experience specializing 
 
 ### Experience
 
-1. **FullStack Laravel Developer** — Cube Limited (01 Feb 2026 – Present)
+1. **Fullstack Developer / Product Lead** — Cube Limited (01 Feb 2026 – Present, Shomvuganj, Mymensingh)
 2. **Backend Developer** — Amarsolution (02/2025 – 02/2026, Uttara, Dhaka)
 3. **Senior Laravel Developer** — Curlware Digital Agency (04/2024 – 01/2025, Shyamloy, Dhaka)
 4. **Laravel Developer** — Boost Education Service (06/2022 – 12/2022, Remote)
 
 ### Key Projects
 
-- **StudyHuge** — Social and education platform connecting students and educators through feeds, communities, structured courses, multimedia lessons, progress tracking, and online exams. Laravel, Livewire. https://studyhuge.com
+- **Crime Talash 24** — Bangladesh news portal. Team Lead and System Architect. Laravel, Livewire, Alpine.js. https://crimetalash24.com
+
+- **StudyHuge** — Team Lead and Product Manager. Laravel API backend, Docker deployment, frontend/mobile team coordination; Livewire, Alpine.js, Sanctum, Reverb. Social and education platform connecting students and educators through feeds, communities, structured courses, multimedia lessons, progress tracking, and online exams. Laravel, Livewire. https://studyhuge.com
 
 - **Dazzle.com.bd** — E-commerce platform. Backend Team Lead. Laravel API, Docker.
 - **AmarSolution ERP** — ERP solution. Laravel API with microservices architecture.
@@ -89,3 +91,9 @@ Results-driven Fullstack Developer with over 5 years of experience specializing 
 - Mobile Apps Development Training — ICT Division Bangladesh
 - ICT Olympiad Bangladesh — University Team Lead
 - Digital Marketing Training — LEDP Project by Govt. of Bangladesh
+
+### Latest CV source
+
+- `public/hannan_cv_16_10_2026.pdf` is the current download (October 16, 2026).
+- The CV lists one national award and three certificates; do not describe these as four industry awards.
+- Skill percentages and client satisfaction percentages are not substantiated by the CV.
